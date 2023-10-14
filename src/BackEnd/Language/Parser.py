@@ -1,3 +1,4 @@
+from Commands.Commentary import Commentary
 from Commands.Mkdisk import Mkdisk
 from Commands.Rmdisk import Rmdisk
 from Commands.Fdisk import Fdisk
@@ -42,18 +43,19 @@ def p_COMMAND(t):
                 | RMUSR
                 | MKFILE
                 | MKDIR
-                | REP'''
+                | REP
+                | COMMENTARY'''
     t[0] = t[1]
 
 def p_MKDISK(t):
     '''MKDISK   : RW_mkdisk MKDISKPARAMS
                 | RW_mkdisk'''
     if len(t) != 2:
-        t[0] = Mkdisk(t.lineno(1), t.lexpos(1))
+        t[0] = Mkdisk()
         t[0].setParams(t[2])
         t[0] = t[0].exec()
     else:
-        t[0] = Mkdisk(t.lineno(1), t.lexpos(1))
+        t[0] = Mkdisk()
         t[0].setParams({})
         t[0] = t[0].exec()
 
@@ -77,21 +79,21 @@ def p_RMDISK(t):
     '''RMDISK   : RW_rmdisk RW_path TK_equ TK_path
                 | RW_rmdisk'''
     if len(t) != 2:
-        t[0] = Rmdisk(t.lineno(1), t.lexpos(1), t[4])
+        t[0] = Rmdisk(t[4])
         t[0] = t[0].exec()
     else:
-        t[0] = Rmdisk(t.lineno(1), t.lexpos(1), )
+        t[0] = Rmdisk()
         t[0] = t[0].exec()
 
 def p_FDISK(t):
     '''FDISK    : RW_fdisk FDISKPARAMS
                 | RW_fdisk'''
     if len(t) != 2:
-        t[0] = Fdisk(t.lineno(1), t.lexpos(1))
+        t[0] = Fdisk()
         t[0].setParams(t[2])
         t[0] = t[0].exec()
     else:
-        t[0] = Fdisk(t.lineno(1), t.lexpos(1))
+        t[0] = Fdisk()
         t[0].setParams({})
         t[0] = t[0].exec()
 
@@ -117,11 +119,11 @@ def p_MOUNT(t):
     '''MOUNT    : RW_mount MOUNTPARAMS
                 | RW_mount'''
     if len(t) != 2:
-        t[0] = Mount(t.lineno(1), t.lexpos(1))
+        t[0] = Mount()
         t[0].setParams(t[2])
         t[0] = t[0].exec()
     else:
-        t[0] = Mount(t.lineno(1), t.lexpos(1))
+        t[0] = Mount()
         t[0].setParams({})
         t[0] = t[0].exec()
 
@@ -143,11 +145,11 @@ def p_MKFS(t):
     '''MKFS : RW_mkfs MKFSPARAMS
             | RW_mkfs'''
     if len(t) != 2:
-        t[0] = Mkfs(t.lineno(1), t.lexpos(1))
+        t[0] = Mkfs()
         t[0].setParams(t[2])
         t[0] = t[0].exec()
     else:
-        t[0] = Mkfs(t.lineno(1), t.lexpos(1))
+        t[0] = Mkfs()
         t[0].setParams({})
         t[0] = t[0].exec()
 
@@ -169,11 +171,11 @@ def p_LOGIN(t):
     '''LOGIN    : RW_login LOGINPARAMS
                 | RW_login'''
     if len(t) != 2:
-        t[0] = Login(t.lineno(1), t.lexpos(1))
+        t[0] = Login()
         t[0].setParams(t[2])
         t[0] = t[0].exec()
     else:
-        t[0] = Login(t.lineno(1), t.lexpos(1))
+        t[0] = Login()
         t[0].setParams({})
         t[0] = t[0].exec()
 
@@ -195,18 +197,18 @@ def p_LOGINPARAM(t):
 
 def p_LOGOUT(t):
     '''LOGOUT : RW_logout'''
-    t[0] = Logout(t.lineno(1), t.lexpos(1))
+    t[0] = Logout()
     t[0] = t[0].exec()
 
 def p_MKGRP(t):
     '''MKGRP    : RW_mkgrp RW_name TK_equ TK_id
                 | RW_mkgrp'''
     if len(t) != 2:
-        t[0] = Mkgrp(t.lineno(1), t.lexpos(1))
+        t[0] = Mkgrp()
         t[0].setParams({t[2][1:].lower().strip(): t[4]})
         t[0] = t[0].exec()
     else:
-        t[0] = Mkgrp(t.lineno(1), t.lexpos(1))
+        t[0] = Mkgrp()
         t[0].setParams({})
         t[0] = t[0].exec()
     
@@ -215,11 +217,11 @@ def p_RMGRP(t):
     '''RMGRP    : RW_rmgrp RW_name TK_equ TK_id
                 | RW_rmgrp'''
     if len(t) != 2:
-        t[0] = Rmgrp(t.lineno(1), t.lexpos(1))
+        t[0] = Rmgrp()
         t[0].setParams({t[2][1:].lower().strip(): t[4]})
         t[0] = t[0].exec()
     else:
-        t[0] = Rmgrp(t.lineno(1), t.lexpos(1))
+        t[0] = Rmgrp()
         t[0].setParams({})
         t[0] = t[0].exec()
 
@@ -228,11 +230,11 @@ def p_MKUSR(t):
     '''MKUSR    : RW_mkusr MKUSERPARAMS
                 | RW_mkusr'''
     if len(t) != 2:
-        t[0] = Mkusr(t.lineno(1), t.lexpos(1))
+        t[0] = Mkusr()
         t[0].setParams(t[2])
         t[0] = t[0].exec()
     else:
-        t[0] = Mkusr(t.lineno(1), t.lexpos(1))
+        t[0] = Mkusr()
         t[0].setParams({})
         t[0] = t[0].exec()
 
@@ -255,11 +257,11 @@ def p_RMUSR(t):
     '''RMUSR    : RW_rmusr RW_user TK_equ TK_id
                 | RW_rmusr'''
     if len(t) != 2:
-        t[0] = Rmusr(t.lineno(1), t.lexpos(1))
+        t[0] = Rmusr()
         t[0].setParams({t[2][1:].lower().strip(): t[4]})
         t[0] = t[0].exec()
     else:
-        t[0] = Rmusr(t.lineno(1), t.lexpos(1))
+        t[0] = Rmusr()
         t[0].setParams({})
         t[0] = t[0].exec()
 
@@ -267,11 +269,11 @@ def p_MKFILE(t):
     '''MKFILE   : RW_mkfile MKFILEPARAMS
                 | RW_mkfile'''
     if len(t) != 2:
-        t[0] = Mkfile(t.lineno(1), t.lexpos(1))
+        t[0] = Mkfile()
         t[0].setParams(t[2])
         t[0] = t[0].exec()
     else:
-        t[0] = Mkfile(t.lineno(1), t.lexpos(1))
+        t[0] = Mkfile()
         t[0].setParams({})
         t[0] = t[0].exec()
 
@@ -298,11 +300,11 @@ def p_MKDIR(t):
     '''MKDIR    : RW_mkdir MKDIRPARAMS
                 | RW_mkdir'''
     if len(t) != 2:
-        t[0] = Mkdir(t.lineno(1), t.lexpos(1))
+        t[0] = Mkdir()
         t[0].setParams(t[2])
         t[0] = t[0].exec()
     else:
-        t[0] = Mkdir(t.lineno(1), t.lexpos(1))
+        t[0] = Mkdir()
         t[0].setParams({})
         t[0] = t[0].exec()
 
@@ -327,11 +329,11 @@ def p_REP(t):
     '''REP  : RW_rep REPPARAMS
             | RW_rep'''
     if len(t) != 2:
-        t[0] = Rep(t.lineno(1), t.lexpos(1))
+        t[0] = Rep()
         t[0].setParams(t[2])
         t[0] = t[0].exec()
     else:
-        t[0] = Rep(t.lineno(1), t.lexpos(1))
+        t[0] = Rep()
         t[0].setParams({})
         t[0] = t[0].exec()
 
@@ -361,8 +363,13 @@ def p_NAME(t):
             | RW_file'''
     t[0] = t[1]
 
+def p_COMMENTARY(t):
+    '''COMMENTARY : commentary'''
+    t[0] = Commentary(t[1])
+    t[0] = t[0].exec()
+
 def p_error(t):
-    print(f"\033[31m -> Error: Comando sin reconocer. ({t.type} = {t.value}) [{t.lineno}:{t.lexpos}]\033[0m")
+    errors.append(f" -> Error: Comando sin reconocer. ({t.type} = {t.value})")
 
 from Language.Scanner import *
 import ply.yacc as Parser

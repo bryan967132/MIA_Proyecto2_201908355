@@ -1,3 +1,5 @@
+import re
+
 errors = []
 
 reserveds = {
@@ -46,6 +48,7 @@ tokens = tuple(reserveds.values()) + (
     'TK_type',
     'TK_id',
     'TK_equ',
+    'commentary',
 )
 
 m = {
@@ -87,7 +90,8 @@ def t_TK_id(t):
 
 def t_commentary(t):
     r'\#[^\r\n]*'
-    t.lexer.skip(1)
+    t.value = re.sub(r'\#[ ]*', '', t.value)
+    return t
 
 t_ignore = " \t"
 
