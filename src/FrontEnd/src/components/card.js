@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import './card.css'
+import { headers, API } from './headers.js'
 import CodeMirror from '@uiw/react-codemirror';
 import { StreamLanguage } from '@codemirror/language';
 import { shell } from '@codemirror/legacy-modes/mode/shell';
@@ -13,7 +14,6 @@ export default function Card() {
     const [isPaused, setIsPaused] = useState(false);
     const [commands_list, setCommands_list] = useState([]);
     const textAreaRef = useRef(null);
-    const API = process.env.REACT_APP_API_URL;
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
@@ -41,19 +41,20 @@ export default function Card() {
                 setCommands_list(commands.slice(i + 1, commands.length));
                 if(command === 'pause') {
                     setIsPaused(true);
-                    setResults(prevResults => prevResults + `[Pause] => Presiona Enter para continuar\n`);
+                    setResults(prevResults => prevResults + ` -> pause\n`);
                     break;
                 }
                 try {
-                    const response = await fetch(`${API}/parse`, {
+                    await fetch(`${API}/parse`, {
                         method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({command}),
-                    });
-                    const data = await response.json();
-                    setResults(prevResults => prevResults + `${data.response}\n`);
+                        headers,
+                        body: JSON.stringify({command, 'line': i + 1}),
+                    })
+                    .then(response => response.json())
+                    .then(response => {
+                        setResults(prevResults => prevResults + `${response.response}\n`);
+                    })
+                    .catch(error => {})
                 } catch (error) {
                     console.error(`Error en la solicitud ${i + 1}: ${error}`);
                 }
@@ -100,13 +101,13 @@ export default function Card() {
                             height='300px'
                             extensions={[StreamLanguage.define(shell)]}
                             onChange={onChange}
-                            tabSize={10}
                         />
                     </div>
                 </div>
                 <div class="green-border">
-                    <textarea 
-                        className="form-control" 
+                    <textarea
+                        className="form-control"
+                        wrap="off"
                         placeholder="Resultados" 
                         readOnly
                         ref={textAreaRef}
