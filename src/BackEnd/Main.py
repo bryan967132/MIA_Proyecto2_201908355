@@ -12,8 +12,13 @@ def obtener_productos():
 
 @app.route('/parse', methods=['POST'])
 def mkdisk():
-    parser.parse(request.json['command'])
-    return jsonify({'response': 'mkdisk success'})
+    try:
+        response = parser.parse(request.json["command"])[0]
+        if not type(response) == dict:
+            return jsonify({'response': f'{response} [{request.json["line"]}:1]'})
+        return jsonify({'response': f'{response["commentary"]}'})
+    except:
+        return jsonify({'response': f' -> Error: Comando sin reconocer. [{request.json["line"]}:1]'})
 
 if __name__ == '__main__':
     os.system('clear')
