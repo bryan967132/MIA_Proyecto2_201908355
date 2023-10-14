@@ -3,8 +3,6 @@ from Structures.SuperBlock import *
 from Structures.InodesTable import *
 from Structures.BlockFolder import *
 from Structures.BlockFile import *
-from Structures.BlockPointers import *
-from Structures.Journal import *
 from Structures.Tree import *
 from Structures.MBR import *
 from Structures.EBR import *
@@ -14,54 +12,29 @@ import os
 import re
 
 class Rep:
-    def __init__(self, line: int, column: int):
-        self.line = line
-        self.column = column
-
     def setParams(self, params : dict):
         self.params = params
 
     def exec(self):
         if not ('name' in self.params and 'path' in self.params and 'id' in self.params):
-            self.__printError(' -> Error rep: Faltan parámetros obligatorios para generar el reporte.')
-            return
+            return self.__getError(' -> Error rep: Faltan parámetros obligatorios para generar el reporte.')
         self.params['path'] = self.params['path'].replace('"','')
         if self.params['name'].lower() == 'mbr':
-            self.__reportMBR()
-            return
+            return self.__reportMBR()
         if self.params['name'].lower() == 'disk':
-            self.__reportDisk()
-            return
-        if self.params['name'].lower() == 'inode':
-            self.__reportInode()
-            return
-        if self.params['name'].lower() == 'block':
-            self.__reportBlock()
-            return
-        if self.params['name'].lower() == 'journaling':
-            self.__reportJournaling()
-            return
+            return self.__reportDisk()
         if self.params['name'].lower() == 'bm_inode':
-            self.__reportBMInode()
-            return
+            return self.__reportBMInode()
         if self.params['name'].lower() == 'bm_block':
-            self.__reportBMBlock()
-            return
+            return self.__reportBMBlock()
         if self.params['name'].lower() == 'tree':
-            self.__reportTree()
-            return
+            return self.__reportTree()
         if self.params['name'].lower() == 'sb':
-            self.__reportSb()
-            return
+            return self.__reportSb()
         if not 'ruta' in self.params:
-            self.__printError(' -> Error rep: Faltan parámetros obligatorios para generar el reporte.')
-            return
+            return self.__getError(' -> Error rep: Faltan parámetros obligatorios para generar el reporte.')
         if self.params['name'].lower() == 'file':
-            self.__reportFile()
-            return
-        if self.params['name'].lower() == 'ls':
-            self.__reportLs()
-            return
+            return self.__reportFile()
 
     def __reportMBR(self):
         match = re.match(r'(\d+)([a-zA-Z]+\d*)', self.params['id'])
@@ -103,11 +76,11 @@ class Rep:
                     dot += '\n\t\t\t\t\t</TABLE>\n\t\t\t\t</TD>\n\t\t\t</TR>'
                     dot += '\n\t\t</TABLE>\n\t>];'
                     dot += '\n}'
-                    self.__generateFile(dot, f'({match.group(2)})')
+                    return self.__generateFile(dot, f'({match.group(2)})')
             else:
-                self.__printError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
+                return self.__getError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
         else:
-            self.__printError(f' -> Error rep: No existe el disco {match.group(2)} para reportar.')
+            return self.__getError(f' -> Error rep: No existe el disco {match.group(2)} para reportar.')
 
     def __reportDisk(self):
         match = re.match(r'(\d+)([a-zA-Z]+\d*)', self.params['id'])
@@ -186,117 +159,11 @@ class Rep:
                     dot += extendedParts
                     dot += '\n\t\t</TABLE>\n\t>];'
                     dot += '\n}'
-                    self.__generateFile(dot, f'({match.group(2)})')
+                    return self.__generateFile(dot, f'({match.group(2)})')
             else:
-                self.__printError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
+                return self.__getError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
         else:
-            self.__printError(f' -> Error rep: No existe el disco {match.group(2)} para reportar.')
-
-    def __reportInode(self):
-        match = re.match(r'(\d+)([a-zA-Z]+\d*)', self.params['id'])
-        if match.group(2) in disks:
-            if self.params['id'] in disks[match.group(2)]['ids']:
-                absolutePath = disks[match.group(2)]['path']
-                namePartition = disks[match.group(2)]['ids'][self.params['id']]['name']
-                with open(absolutePath, 'rb') as file:
-                    readed_bytes = file.read(127)
-                    mbr = MBR.decode(readed_bytes)
-                    for i in range(len(mbr.partitions)):
-                        if mbr.partitions[i].status and mbr.partitions[i].name.strip() == namePartition:
-                            file.seek(mbr.partitions[i].start)
-                            superBlock = SuperBlock.decode(file.read(SuperBlock.sizeOf()))
-                            file.seek(superBlock.bm_inode_start)
-                            bm_inodes = file.read(superBlock.inodes_count).decode('utf-8')
-                            dot = 'digraph Inodes{\n\tnode [shape=box];\n\trankdir=LR;'
-                            for i in range(len(bm_inodes)):
-                                if bm_inodes[i] == '1':
-                                    file.seek(superBlock.inode_start + i * InodesTable.sizeOf())
-                                    inode = InodesTable.decode(file.read(InodesTable.sizeOf()))
-                                    dot += f'''\n\tn{i}[label = <<TABLE BORDER="0">
-        <TR><TD colspan="2">Inodo {i}</TD></TR>
-        <TR><TD ALIGN="LEFT">uid:</TD><TD ALIGN="LEFT">{inode.uid}</TD></TR>
-        <TR><TD ALIGN="LEFT">gid:</TD><TD ALIGN="LEFT">{inode.gid}</TD></TR>
-        <TR><TD ALIGN="LEFT">size:</TD><TD ALIGN="LEFT">{inode.size}</TD></TR>
-        <TR><TD ALIGN="LEFT">atime:</TD><TD ALIGN="LEFT">{inode.atime}</TD></TR>
-        <TR><TD ALIGN="LEFT">ctime:</TD><TD ALIGN="LEFT">{inode.ctime}</TD></TR>
-        <TR><TD ALIGN="LEFT">mtime:</TD><TD ALIGN="LEFT">{inode.mtime}</TD></TR>'''
-                                    for r in range(len(inode.block)):
-                                        dot += f'\n\t\t<TR><TD ALIGN="LEFT">apt{r + 1}:</TD><TD ALIGN="LEFT">{inode.block[r]}</TD></TR>'
-                                    dot += f'''
-        <TR><TD ALIGN="LEFT">type:</TD><TD ALIGN="LEFT">{inode.type}</TD></TR>
-        <TR><TD ALIGN="LEFT">perm:</TD><TD ALIGN="LEFT">{inode.perm}</TD></TR>
-    </TABLE>>];'''
-                                    if i > 0:
-                                        dot += f'\n\tn{i - 1} -> n{i};'
-                            dot += '\n}'
-                            self.__generateFile(dot, f'({namePartition}: {match.group(2)})')
-                            return
-            else:
-                self.__printError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
-        else:
-            self.__printError(f' -> Error rep: No existe el disco {match.group(2)} para reportar.')
-
-    def __reportBlock(self):
-        match = re.match(r'(\d+)([a-zA-Z]+\d*)', self.params['id'])
-        if match.group(2) in disks:
-            if self.params['id'] in disks[match.group(2)]['ids']:
-                absolutePath = disks[match.group(2)]['path']
-                namePartition = disks[match.group(2)]['ids'][self.params['id']]['name']
-                with open(absolutePath, 'rb') as file:
-                    readed_bytes = file.read(127)
-                    mbr = MBR.decode(readed_bytes)
-                    for i in range(len(mbr.partitions)):
-                        if mbr.partitions[i].status and mbr.partitions[i].name.strip() == namePartition:
-                            file.seek(mbr.partitions[i].start)
-                            superBlock = SuperBlock.decode(file.read(SuperBlock.sizeOf()))
-                            tree: Tree = Tree(superBlock, file)
-                            blocks = tree.getBlocks()
-                            dot = 'digraph Blocks{\n\tnode [shape=box];\n\trankdir=LR;'
-                            for i in range(len(blocks)):
-                                dot += f'{blocks[i][1].getDotB(blocks[i][0])}'
-                                if i > 0:
-                                    dot +=  f'\n\tn{blocks[i - 1][0]} -> n{blocks[i][0]};'
-                            dot += '\n}'
-                            self.__generateFile(dot, f'({namePartition}: {match.group(2)})')
-                            return
-            else:
-                self.__printError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
-        else:
-            self.__printError(f' -> Error rep: No existe el disco {match.group(2)} para reportar.')
-
-    def __reportJournaling(self):
-        match = re.match(r'(\d+)([a-zA-Z]+\d*)', self.params['id'])
-        if match.group(2) in disks:
-            if self.params['id'] in disks[match.group(2)]['ids']:
-                absolutePath = disks[match.group(2)]['path']
-                namePartition = disks[match.group(2)]['ids'][self.params['id']]['name']
-                with open(absolutePath, 'rb') as file:
-                    readed_bytes = file.read(127)
-                    mbr = MBR.decode(readed_bytes)
-                    for i in range(len(mbr.partitions)):
-                        if mbr.partitions[i].status and mbr.partitions[i].name.strip() == namePartition:
-                            file.seek(mbr.partitions[i].start)
-                            superBlock = SuperBlock.decode(file.read(SuperBlock.sizeOf()))
-                            if superBlock.filesystem_type == 3:
-                                file.seek(mbr.partitions[i].start + SuperBlock.sizeOf())
-                                dot = 'digraph Inodes{\n\tnode [shape=plaintext];\n\trankdir=LR;'
-                                dot += f'\n\tn{i}[label = <<TABLE BORDER="1" >'
-                                dot += f'\n\t\t<TR><TD COLSPAN="4">{match.group(2)}: {namePartition}</TD></TR>'
-                                dot += f'\n\t\t<TR><TD>Operacion</TD><TD>Path</TD><TD>Contenido</TD><TD>Fecha</TD></TR>'
-                                for r in range(superBlock.inodes_count):
-                                    readed_bytes = file.read(Journal.sizeOf())
-                                    if readed_bytes != Journal.sizeOf() * b'\x00':
-                                        dot += Journal.decode(readed_bytes).getDot()
-                                dot += '\n\t</TABLE>>];'
-                                dot += '\n}'
-                                self.__generateFile(dot, f'({namePartition}: {match.group(2)})')
-                            else:
-                                self.__printError(f' -> Error rep: No puede generarse el reporte para {self.params["id"]} en el disco {match.group(2)}. Journaling no disponible en EXT2.')
-                            return
-            else:
-                self.__printError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
-        else:
-            self.__printError(f' -> Error rep: No existe el disco {match.group(2)} para reportar.')
+            return self.__getError(f' -> Error rep: No existe el disco {match.group(2)} para reportar.')
 
     def __reportBMInode(self):
         match = re.match(r'(\d+)([a-zA-Z]+\d*)', self.params['id'])
@@ -322,12 +189,11 @@ class Rep:
                                 i += 1
                             with open(os.path.abspath(self.params['path']), 'w') as file:
                                 file.write(matriz)
-                            self.__printSuccess(self.params['name'].lower(), f'({namePartition}: {match.group(2)})')
-                            return
+                            return self.__getSuccess(self.params['name'].lower(), f'({namePartition}: {match.group(2)})')
             else:
-                self.__printError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
+                return self.__getError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
         else:
-            self.__printError(f' -> Error rep: No existe el disco {match.group(2)} para reportar.')
+            return self.__getError(f' -> Error rep: No existe el disco {match.group(2)} para reportar.')
 
     def __reportBMBlock(self):
         match = re.match(r'(\d+)([a-zA-Z]+\d*)', self.params['id'])
@@ -353,12 +219,11 @@ class Rep:
                                 i += 1
                             with open(os.path.abspath(self.params['path']), 'w') as file:
                                 file.write(matriz)
-                            self.__printSuccess(self.params['name'].lower(), f'({namePartition}: {match.group(2)})')
-                            return
+                            return self.__getSuccess(self.params['name'].lower(), f'({namePartition}: {match.group(2)})')
             else:
-                self.__printError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
+                return self.__getError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
         else:
-            self.__printError(f' -> Error rep: No existe el disco {match.group(2)} para reportar.')
+            return self.__getError(f' -> Error rep: No existe el disco {match.group(2)} para reportar.')
 
     def __reportTree(self):
         match = re.match(r'(\d+)([a-zA-Z]+\d*)', self.params['id'])
@@ -374,12 +239,11 @@ class Rep:
                             file.seek(mbr.partitions[i].start)
                             superBlock = SuperBlock.decode(file.read(SuperBlock.sizeOf()))
                             tree: Tree = Tree(superBlock, file)
-                            self.__generateFile(tree.getDot(match.group(2), namePartition), f'({namePartition}: {match.group(2)})')
-                            return
+                            return self.__generateFile(tree.getDot(match.group(2), namePartition), f'({namePartition}: {match.group(2)})')
             else:
-                self.__printError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
+                return self.__getError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
         else:
-            self.__printError(f' -> Error rep: No existe el disco {match.group(2)} para reportar.')
+            return self.__getError(f' -> Error rep: No existe el disco {match.group(2)} para reportar.')
 
     def __reportSb(self):
         match = re.match(r'(\d+)([a-zA-Z]+\d*)', self.params['id'])
@@ -419,12 +283,11 @@ class Rep:
                             dot += '\n\t\t\t\t\t</TABLE>\n\t\t\t\t</TD>\n\t\t\t</TR>'
                             dot += '\n\t\t</TABLE>\n\t>];'
                             dot += '\n}'
-                            self.__generateFile(dot, f'({namePartition}: {match.group(2)})')
-                            return
+                            return self.__generateFile(dot, f'({namePartition}: {match.group(2)})')
             else:
-                self.__printError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
+                return self.__getError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
         else:
-            self.__printError(f' -> Error rep: No existe el disco {match.group(2)} para reportar.')
+            return self.__getError(f' -> Error rep: No existe el disco {match.group(2)} para reportar.')
 
     def __reportFile(self):
         match = re.match(r'(\d+)([a-zA-Z]+\d*)', self.params['id'])
@@ -445,19 +308,15 @@ class Rep:
                                 if founded:
                                     with open(self.params['path'], 'w') as file:
                                         file.write(content.replace('&lt;', '<').replace('&gt;', '>'))
-                                    self.__printSuccess(self.params['name'].lower(), f'({namePartition}: {match.group(2)})')
+                                    return self.__getSuccess(self.params['name'].lower(), f'({namePartition}: {match.group(2)})')
                                 else:
-                                    self.__printError(f' -> Error rep: No existe el archivo {self.params["ruta"]}.')
+                                    return self.__getError(f' -> Error rep: No existe el archivo {self.params["ruta"]}.')
                             else:
-                                    self.__printError(f' -> Error rep: No existe el archivo {self.params["ruta"]}.')
-                            return
+                                    return self.__getError(f' -> Error rep: No existe el archivo {self.params["ruta"]}.')
             else:
-                self.__printError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
+                return self.__getError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
         else:
-            self.__printError(f' -> Error rep: No existe el disco {match.group(2)}.')
-
-    def __reportLs(self):
-        pass
+            return self.__getError(f' -> Error rep: No existe el disco {match.group(2)}.')
 
     def __getListEBR(self, start : int, size : int, file : BufferedRandom) -> ListEBR:
         listEBR : ListEBR = ListEBR(start, size)
@@ -481,7 +340,7 @@ class Rep:
             file.write(dot)
         os.system(f'dot -T{extension} "{absolutePathDot}" -o "{absolutePath}"')
         os.remove(absolutePath.replace(extension, "dot"))
-        self.__printSuccess(self.params['name'].lower(), diskname)
+        return self.__getSuccess(self.params['name'].lower(), diskname)
 
     def __percentage(self, start, firstEmptyByte, size) -> int or float:
         number = round(((start - firstEmptyByte) / size) * 100, 2)
@@ -496,11 +355,11 @@ class Rep:
             return num
         return 1
 
-    def __printError(self, text):
-        print(f"\033[{31}m{text} [{self.line}:{self.column}]\033[0m")
+    def __getError(self, text):
+        return f"{text}"
 
-    def __printSuccess(self, type, diskname):
-        print(f"\033[{35}m -> rep: Reporte generado exitosamente. '{type}' {diskname} [{self.line}:{self.column}]\033[0m")
+    def __getSuccess(self, type, diskname):
+        return f" -> rep: Reporte generado exitosamente. '{type}' {diskname}"
 
     def __str__(self) -> str:
         return 'Rep'

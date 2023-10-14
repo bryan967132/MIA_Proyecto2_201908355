@@ -7,30 +7,22 @@ from Env.Env import *
 import os
 
 class Mount:
-    def __init__(self, line: int, column:int):
-        self.line = line
-        self.column = column
-
     def setParams(self, params : dict):
         self.params = params
 
     def exec(self):
         if self.__validateParams():
-            self.__mount()
-            return
+            return self.__mount()
         elif self.__validateEmptyParams():
-            self.__viewMounteds()
-            return
+            return self.__viewMounteds()
         else:
-            self.__printError(' -> Error mount: Faltan parámetros obligatorios para montar la partición')
-            return
+            return self.__getError(' -> Error mount: Faltan parámetros obligatorios para montar la partición')
 
     def __mount(self):
         self.params['path'] = self.params['path'].replace('"', '')
         absolutePath = os.path.abspath(self.params['path'])
         if not os.path.exists(absolutePath):
-            self.__printError(f' -> Error mount: No existe el disco {os.path.basename(absolutePath).split(".")[0]} para montar la partición.')
-            return
+            return self.__getError(f' -> Error mount: No existe el disco {os.path.basename(absolutePath).split(".")[0]} para montar la partición.')
         with open(absolutePath, 'rb') as file:
             readed_bytes = file.read(127)
             mbr = MBR.decode(readed_bytes)
@@ -44,10 +36,8 @@ class Mount:
                         newID = f'55{thisDisk["nextId"]}' + os.path.basename(absolutePath).split(".")[0]
                         thisDisk['ids'][newID] = {'name': self.params["name"], 'mkdirs': []}
                         thisDisk['nextId'] += 1
-                        self.__printSuccess(os.path.basename(absolutePath).split('.')[0], self.params['name'], newID, mbr.partitions[i].type)
-                        return
-                    self.__printError(f' -> Error mount: Intenta montar la partición en {os.path.basename(absolutePath).split(".")[0]} que ya está montada. ({self.params["name"]})')
-                    return
+                        return self.__getSuccess(os.path.basename(absolutePath).split('.')[0], self.params['name'], newID, mbr.partitions[i].type)
+                    return self.__getError(f' -> Error mount: Intenta montar la partición en {os.path.basename(absolutePath).split(".")[0]} que ya está montada. ({self.params["name"]})')
             i = self.__getExtended(mbr.partitions)
             if i != -1:
                 listEBR: list[EBR] = self.__getListEBR(mbr.partitions[i].start, mbr.partitions[i].size, file).getIterable()
@@ -61,12 +51,9 @@ class Mount:
                             newID = f'55{thisDisk["nextId"]}' + os.path.basename(absolutePath).split(".")[0]
                             thisDisk['ids'][newID] = {'name': self.params["name"], 'mkdirs': []}
                             thisDisk['nextId'] += 1
-                            self.__printSuccess(os.path.basename(absolutePath).split('.')[0], self.params['name'], newID, 'L')
-                            return
-                        self.__printError(f' -> Error mount: Intenta montar la partición en {os.path.basename(absolutePath).split(".")[0]} que ya está montada. ({self.params["name"]})')
-                        return
-            self.__printError(f' -> Error mount: Intenta montar una partición inexistente en {os.path.basename(absolutePath).split(".")[0]}.')
-            return 
+                            return self.__getSuccess(os.path.basename(absolutePath).split('.')[0], self.params['name'], newID, 'L')
+                        return self.__getError(f' -> Error mount: Intenta montar la partición en {os.path.basename(absolutePath).split(".")[0]} que ya está montada. ({self.params["name"]})')
+            return self.__getError(f' -> Error mount: Intenta montar una partición inexistente en {os.path.basename(absolutePath).split(".")[0]}.')
 
     def __getListEBR(self, start: int, size: int, file: BufferedRandom) -> ListEBR:
         listEBR: ListEBR = ListEBR(start, size)
@@ -97,18 +84,18 @@ class Mount:
 
     def __viewMounteds(self):
         if len(disks) > 0:
-            print(f'\033[33m -> mount: \033[0m')
-            print(f'\033[33m\t -> Particiones Montadas\033[0m')
+            response = ' -> mount:'
+            response += f'\n\t -> Particiones Montadas'
             for k, v in disks.items():
                 for k1, v1 in v['ids'].items():
-                    print('\033[53m\t -> {:<20} {:<20} {:<20}\033[0m'.format(k1, v1, k))
-            print()
+                    response += '\n\t -> {:<20} {:<20} {:<20}'.format(k1, v1, k)
+            return response
         else:
-            print(f'\033[33m -> mount: No hay particiones montadas: \033[0m')
+            return f' -> mount: No hay particiones montadas.'
 
-    def __printError(self, text):
-        print(f"\033[31m{text} [{self.line}:{self.column}]\033[0m")
+    def __getError(self, text):
+        return f"{text}"
 
-    def __printSuccess(self, diskname, name, newID, type):
+    def __getSuccess(self, diskname, name, newID, type):
         type = "PRIMARIA " if type == 'P' else ("EXTENDIDA" if type == 'E' else "LOGICA   ")
-        print(f"\033[32m -> mount: Partición montada exitosamente en {diskname}. {type} ({name}: {newID}) [{self.line}:{self.column}]\033[0m")
+        return f" -> mount: Partición montada exitosamente en {diskname}. {type} ({name}: {newID})"

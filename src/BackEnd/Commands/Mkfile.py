@@ -5,10 +5,6 @@ import datetime
 import os
 
 class Mkfile:
-    def __init__(self, line: int, column: int):
-        self.line = line
-        self.column = column
-
     def setParams(self, params: dict):
         self.params = params
 
@@ -33,19 +29,16 @@ class Mkfile:
                                         content += '0123456789'
                                     content = content[:int(self.params['size'])]
                                 else:
-                                    self.__printError(f" -> Error mkfile: No se creó el archivo '{self.params['path']}', el atributo size debe ser un número positivo.")
-                                    return
+                                    return self.__getError(f" -> Error mkfile: No se creó el archivo '{self.params['path']}', el atributo size debe ser un número positivo.")
                             elif 'cont' in self.params:
                                 self.params['cont'] = self.params['cont'].replace('"', '')
                                 abspath = os.path.abspath(self.params['cont'])
                                 if os.path.isfile(abspath) and os.path.exists(abspath):
                                     content = open(abspath, 'r', encoding='utf-8').read().replace('>', '&gt;').replace('<', '&lt;')
                                 else:
-                                    self.__printError(f" -> Error mkfile: No se creó el archivo '{self.params['path']}', el atributo cont no contiene una ruta de archivo válida.")
-                                    return
+                                    return self.__getError(f" -> Error mkfile: No se creó el archivo '{self.params['path']}', el atributo cont no contiene una ruta de archivo válida.")
                             if self.params['path'] in dirExists:
-                                self.__printError(f" -> Error mkfile: No se creó el archivo '{self.params['path']}' porque ya existe.")
-                                return
+                                return self.__getError(f" -> Error mkfile: No se creó el archivo '{self.params['path']}' porque ya existe.")
                             if self.params['r']:
                                 dir = [i for i in self.params['path'].split('/') if i != '']
                                 c = 1
@@ -60,8 +53,7 @@ class Mkfile:
                                 if len(dir) > 1:
                                     tmpDir = [dir[i] for i in range(len(dir) - 1)]
                                     if not tree.searchdir('/' + '/'.join(tmpDir)) and len([i for i in self.params['path'].split('/') if i != '']) > 1:
-                                        self.__printError(f" -> Error mkfile: No se creó el archivo '{self.params['path']}', no existe la ruta donde intentó crearse.")
-                                        return
+                                        return self.__getError(f" -> Error mkfile: No se creó el archivo '{self.params['path']}', no existe la ruta donde intentó crearse.")
                                 tree.mkfile(self.params['path'], currentLogged['PathDisk'])
                             if superBlock.filesystem_type == 3:
                                 file.seek(mbr.partitions[i].start + SuperBlock.sizeOf())
@@ -76,11 +68,11 @@ class Mkfile:
                                 tree.writeFile(self.params['path'], currentLogged['PathDisk'], mbr.partitions[i].start, content)
                             tree.writeInDisk(currentLogged['PathDisk'], mbr.partitions[i].start, superBlock.encode())
                             dirExists.append(self.params['path'])
-                            self.__printSuccess(f' -> mkfile: Nuevo archivo creada exitosamente \'{self.params["path"]}\'')
+                            return self.__getSuccess(f' -> mkfile: Nuevo archivo creada exitosamente \'{self.params["path"]}\'')
             else:
-                self.__printError(f" -> Error mkfile: Faltan parámetros obligatorios para crear un directorio.")
+                return self.__getError(f" -> Error mkfile: Faltan parámetros obligatorios para crear un directorio.")
         else:
-            self.__printError(f" -> Error mkfile: No hay ningún usuario loggeado actualmente.")
+            return self.__getError(f" -> Error mkfile: No hay ningún usuario loggeado actualmente.")
 
     def __validateParams(self):
         if 'path' in self.params:
@@ -88,8 +80,8 @@ class Mkfile:
             return True
         return False
 
-    def __printError(self, text):
-        print(f"\033[31m{text} [{self.line}:{self.column}]\033[0m")
+    def __getError(self, text):
+        return f"{text}"
 
-    def __printSuccess(self, text):
-        print(f"\033[32m{text} [{self.line}:{self.column}]\033[0m")
+    def __getSuccess(self, text):
+        return f"{text}"

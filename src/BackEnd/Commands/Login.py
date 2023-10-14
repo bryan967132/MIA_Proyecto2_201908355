@@ -1,4 +1,3 @@
-from Structures.Journal import *
 from Structures.User import *
 from Structures.Tree import *
 from Structures.MBR import *
@@ -8,18 +7,14 @@ import datetime
 import re
 
 class Login:
-    def __init__(self, line: int, column: int):
-        self.line = line
-        self.column = column
-
     def setParams(self, params: dict):
         self.params = params
 
     def exec(self):
         if self.__validateParams():
-            self.__login()
+            return self.__login()
         else:
-            self.__printError(' -> Error login: Faltan parámetros obligatorios para iniciar sesión')
+            return self.__getError(' -> Error login: Faltan parámetros obligatorios para iniciar sesión')
 
     def __login(self):
         if not currentLogged['User']:
@@ -44,27 +39,16 @@ class Login:
                                         currentLogged['Partition'] = namePartition
                                         currentLogged['PathDisk'] = absolutePath
                                         currentLogged['IDPart'] = self.params['id']
-                                        if superBlock.filesystem_type == 3:
-                                            file.seek(mbr.partitions[i].start + SuperBlock.sizeOf())
-                                            for r in range(superBlock.inodes_count):
-                                                readed_bytes = file.read(Journal.sizeOf())
-                                                if readed_bytes == Journal.sizeOf() * b'\x00':
-                                                    with open(absolutePath, 'r+b') as file:
-                                                        file.seek(mbr.partitions[i].start + SuperBlock.sizeOf() + r * Journal.sizeOf())
-                                                        file.write(Journal('login', '', f'{user.name},{user.password},{self.params["id"]}', datetime.datetime.now()).encode())
-                                                        break
-                                        self.__printSuccess(f' -> login: Sesión iniciada exitosamente. ({user.name})')
+                                        return self.__getSuccess(f' -> login: Sesión iniciada exitosamente. ({user.name})')
                                     else:
-                                        self.__printError(f' -> Error login: El usuario {self.params["user"]} no existe en el sistema.')
-                                    return
-                                self.__printError(f' -> Error login: No existe el archivo /users.txt.')
-                                return
+                                        return self.__getError(f' -> Error login: El usuario {self.params["user"]} no existe en el sistema.')
+                                return self.__getError(f' -> Error login: No existe el archivo /users.txt.')
                 else:
-                    self.__printError(f' -> Error login: No existe el código de partición {self.params["id"]} en el disco {match.group(2)} para iniciar sesión.')
+                    return self.__getError(f' -> Error login: No existe el código de partición {self.params["id"]} en el disco {match.group(2)} para iniciar sesión.')
             else:
-                self.__printError(f' -> Error login: No existe el disco {match.group(2)}.')
+                return self.__getError(f' -> Error login: No existe el disco {match.group(2)}.')
         else:
-            self.__printError(f' -> Error login: Hay un usuario loggeado actualmente')
+            return self.__getError(f' -> Error login: Hay un usuario loggeado actualmente')
 
     def __isValidUser(self, content, user, password) -> User:
         users: list[User] = self.__getUsers(content)
@@ -86,8 +70,8 @@ class Login:
             return True
         return False
 
-    def __printError(self, text):
-        print(f"\033[31m{text} [{self.line}:{self.column}]\033[0m")
+    def __getError(self, text):
+        return f"{text}"
 
-    def __printSuccess(self, text):
-        print(f"\033[32m{text} [{self.line}:{self.column}]\033[0m")
+    def __getSuccess(self, text):
+        return f"{text}"

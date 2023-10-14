@@ -5,10 +5,6 @@ import datetime
 import os
 
 class Mkusr:
-    def __init__(self, line: int, column: int):
-        self.line = line
-        self.column = column
-
     def setParams(self, params: dict):
         self.params = params
 
@@ -41,30 +37,29 @@ class Mkusr:
                                                                 file.seek(mbr.partitions[i].start + SuperBlock.sizeOf() + r * Journal.sizeOf())
                                                                 file.write(Journal('mkusr', '', f'{self.params["user"]},{self.params["pass"]},{self.params["grp"]}', datetime.datetime.now()).encode())
                                                                 break
-                                                self.__printSuccess(' -> mkusr: Usuario {:<10} creado exitosamente. ({}: {})'.format(self.params['user'], currentLogged['Partition'], os.path.basename(currentLogged['PathDisk']).split('.')[0]))
+                                                return self.__getSuccess(' -> mkusr: Usuario {:<10} creado exitosamente. ({}: {})'.format(self.params['user'], currentLogged['Partition'], os.path.basename(currentLogged['PathDisk']).split('.')[0]))
                                             else:
-                                                self.__printError(f" -> Error mkusr: No existe el archivo /users.txt.")
-                                            return
+                                                return self.__getError(f" -> Error mkusr: No existe el archivo /users.txt.")
                             else:
-                                self.__printError(f" -> Error mkusr: El nombre de grupo no puede contener más de 10 caracteres.")
+                                return self.__getError(f" -> Error mkusr: El nombre de grupo no puede contener más de 10 caracteres.")
                         else:
-                            self.__printError(f" -> Error mkusr: La contraseña no puede contener más de 10 caracteres.")
+                            return self.__getError(f" -> Error mkusr: La contraseña no puede contener más de 10 caracteres.")
                     else:
-                        self.__printError(f" -> Error mkusr: El nombre de un usuario no puede contener más de 10 caracteres.")
+                        return self.__getError(f" -> Error mkusr: El nombre de un usuario no puede contener más de 10 caracteres.")
                 else:
-                    self.__printError(f" -> Error mkusr: Faltan parámetros obligatorios para crear un usuario.")
+                    return self.__getError(f" -> Error mkusr: Faltan parámetros obligatorios para crear un usuario.")
             else:
-                self.__printError(f" -> Error mkusr: Solo el usuario 'root' puede crear usuarios.")
+                return self.__getError(f" -> Error mkusr: Solo el usuario 'root' puede crear usuarios.")
         else:
-            self.__printError(f" -> Error mkusr: No hay ningún usuario loggeado actualmente.")
+            return self.__getError(f" -> Error mkusr: No hay ningún usuario loggeado actualmente.")
 
     def __validateParams(self):
         if 'user' in self.params and 'pass' in self.params and 'grp' in self.params:
             return True
         return False
 
-    def __printError(self, text):
-        print(f"\033[31m{text} [{self.line}:{self.column}]\033[0m")
+    def __getError(self, text):
+        return f"{text}"
 
-    def __printSuccess(self, text):
-        print(f"\033[32m{text} [{self.line}:{self.column}]\033[0m")
+    def __getSuccess(self, text):
+        return f"{text}"

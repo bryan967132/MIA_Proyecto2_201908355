@@ -3,10 +3,6 @@ from Env.Env import *
 import os
 
 class Mkdisk:
-    def __init__(self, line: int, column: int):
-        self.line = line
-        self.column = column
-
     def setParams(self, params: dict):
         self.params = params
 
@@ -15,16 +11,14 @@ class Mkdisk:
             self.params['unit'] = self.params['unit'].upper()
             self.params['fit'] = self.params['fit'].upper()
             if self.params['size'] < 0:
-                self.printError(' -> Error: El tamaño de la partición debe ser mayor que cero')
-                return
+                return self.__getError(' -> Error: El tamaño de la partición debe ser mayor que cero')
             units = 1
             if self.params['unit'] == 'M':
                 units = 1024 * 1024
             elif self.params['unit'] == 'K':
                 units = 1024
             else:
-                self.printError(' -> Error mkdisk: Unidad de Bytes Incorrecta')
-                return
+                return self.__getError(' -> Error mkdisk: Unidad de Bytes Incorrecta')
             self.params['path'] = self.params['path'].replace('"', '')
             absolutePath = os.path.abspath(self.params['path'])
             directory = os.path.dirname(absolutePath)
@@ -40,9 +34,9 @@ class Mkdisk:
             with open(self.params['path'], 'r+b') as file:
                 file.seek(0)
                 file.write(mbr.encode())
-            self.printSuccess(f' -> mkdisk: {os.path.basename(absolutePath).split(".")[0]} creado exitosamente. ({self.params["size"]} {self.params["unit"]}B)')
+            return self.__getSuccess(f' -> mkdisk: {os.path.basename(absolutePath).split(".")[0]} creado exitosamente. ({self.params["size"]} {self.params["unit"]}B)')
         else:
-            self.printError(' -> Error mkdisk: Faltan Parámetros Obligatorios.')
+            return self.__getError(' -> Error mkdisk: Faltan Parámetros Obligatorios.')
 
     def __validateParams(self):
         if 'size' in self.params and 'path' in self.params:
@@ -50,11 +44,11 @@ class Mkdisk:
             return True
         return False
 
-    def printError(self, text):
-        print(f"\033[{31}m{text} [{self.line}:{self.column}]\033[0m")
+    def __getError(self, text):
+        return f"{text}"
 
-    def printSuccess(self, text):
-        print(f"\033[96m{text} [{self.line}:{self.column}]\033[0m")
+    def __getSuccess(self, text):
+        return f"{text}"
 
     def __str__(self) -> str:
         return 'Mkdisk'

@@ -5,10 +5,6 @@ import datetime
 import os
 
 class Mkdir:
-    def __init__(self, line: int, column: int):
-        self.line = line
-        self.column = column
-
     def setParams(self, params: dict):
         self.params = params
 
@@ -26,8 +22,7 @@ class Mkdir:
                             disk = disks[os.path.basename(currentLogged['PathDisk']).split('.')[0]]
                             dirExists = disk['ids'][currentLogged['IDPart']]['mkdirs']
                             if self.params['path'] in dirExists:
-                                self.__printError(f" -> Error mkdir: No se creó la carpeta '{self.params['path']}' porque ya existe.")
-                                return
+                                return self.__getError(f" -> Error mkdir: No se creó la carpeta '{self.params['path']}' porque ya existe.")
                             if self.params['r']:
                                 dir = [i for i in self.params['path'].split('/') if i != '']
                                 c = 0
@@ -41,8 +36,7 @@ class Mkdir:
                                 if len(dir) > 1:
                                     tmpDir = [dir[i] for i in range(len(dir) - 1)]
                                     if not tree.searchdir('/' + '/'.join(tmpDir)) and len([i for i in self.params['path'].split('/') if i != '']) > 1:
-                                        self.__printError(f" -> Error mkdir: No se creó la carpeta '{self.params['path']}', no existe la ruta donde intentó crearse.")
-                                        return
+                                        return self.__getError(f" -> Error mkdir: No se creó la carpeta '{self.params['path']}', no existe la ruta donde intentó crearse.")
                                 tree.mkdir(self.params['path'], currentLogged['PathDisk'])
                             if superBlock.filesystem_type == 3:
                                 file.seek(mbr.partitions[i].start + SuperBlock.sizeOf())
@@ -55,11 +49,11 @@ class Mkdir:
                                             break
                             tree.writeInDisk(currentLogged['PathDisk'], mbr.partitions[i].start, superBlock.encode())
                             dirExists.append(self.params['path'])
-                            self.__printSuccess(f' -> mkdir: Nueva carpeta creada exitosamente \'{self.params["path"]}\'')
+                            return self.__getSuccess(f' -> mkdir: Nueva carpeta creada exitosamente \'{self.params["path"]}\'')
             else:
-                self.__printError(f" -> Error mkdir: Faltan parámetros obligatorios para crear un directorio.")
+                return self.__getError(f" -> Error mkdir: Faltan parámetros obligatorios para crear un directorio.")
         else:
-            self.__printError(f" -> Error mkdir: No hay ningún usuario loggeado actualmente.")
+            return self.__getError(f" -> Error mkdir: No hay ningún usuario loggeado actualmente.")
 
     def __validateParams(self):
         if 'path' in self.params:
@@ -67,8 +61,8 @@ class Mkdir:
             return True
         return False
 
-    def __printError(self, text):
-        print(f"\033[31m{text} [{self.line}:{self.column}]\033[0m")
+    def __getError(self, text):
+        return f"{text}"
 
-    def __printSuccess(self, text):
-        print(f"\033[32m{text} [{self.line}:{self.column}]\033[0m")
+    def __getSuccess(self, text):
+        return f"{text}"

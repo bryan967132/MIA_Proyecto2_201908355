@@ -5,10 +5,6 @@ import datetime
 import os
 
 class Mkgrp:
-    def __init__(self, line: int, column: int):
-        self.line = line
-        self.column = column
-
     def setParams(self, params: dict):
         self.params = params
 
@@ -39,26 +35,25 @@ class Mkgrp:
                                                         file.seek(mbr.partitions[i].start + SuperBlock.sizeOf() + r * Journal.sizeOf())
                                                         file.write(Journal('mkgrp', '', f'{self.params["name"]}', datetime.datetime.now()).encode())
                                                         break
-                                        self.__printSuccess(' -> mkgrp: Grupo {:<10} creado exitosamente. ({}: {})'.format(self.params['name'], currentLogged['Partition'], os.path.basename(currentLogged['PathDisk']).split('.')[0]))
+                                        return self.__getSuccess(' -> mkgrp: Grupo {:<10} creado exitosamente. ({}: {})'.format(self.params['name'], currentLogged['Partition'], os.path.basename(currentLogged['PathDisk']).split('.')[0]))
                                     else:
-                                        self.__printError(f" -> Error mkgrp: No existe el archivo /users.txt.")
-                                    return
+                                        return self.__getError(f" -> Error mkgrp: No existe el archivo /users.txt.")
                     else:
-                        self.__printError(f" -> Error mkgrp: El nombre de un grupo no puede contener más de 10 caracteres.")
+                        return self.__getError(f" -> Error mkgrp: El nombre de un grupo no puede contener más de 10 caracteres.")
                 else:
-                    self.__printError(f" -> Error mkgrp: Faltan parámetros obligatorios para crear un grupo.")
+                    return self.__getError(f" -> Error mkgrp: Faltan parámetros obligatorios para crear un grupo.")
             else:
-                self.__printError(f" -> Error mkgrp: Solo el usuario 'root' puede crear grupos.")
+                return self.__getError(f" -> Error mkgrp: Solo el usuario 'root' puede crear grupos.")
         else:
-            self.__printError(f" -> Error mkgrp: No hay ningún usuario loggeado actualmente.")
+            return self.__getError(f" -> Error mkgrp: No hay ningún usuario loggeado actualmente.")
 
     def __validateParams(self):
         if 'name' in self.params:
             return True
         return False
 
-    def __printError(self, text):
-        print(f"\033[31m{text} [{self.line}:{self.column}]\033[0m")
+    def __getError(self, text):
+        return f"{text}"
 
-    def __printSuccess(self, text):
-        print(f"\033[32m{text} [{self.line}:{self.column}]\033[0m")
+    def __getSuccess(self, text):
+        return f"{text}"
