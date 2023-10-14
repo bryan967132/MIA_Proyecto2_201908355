@@ -11,7 +11,7 @@ def obtener_productos():
     return jsonify({'response': 'success'})
 
 @app.route('/parse', methods=['POST'])
-def mkdisk():
+def parse():
     try:
         response = parser.parse(request.json["command"])[0]
         if not type(response) == dict:
