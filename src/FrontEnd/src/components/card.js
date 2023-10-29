@@ -5,7 +5,6 @@ import CodeMirror from '@uiw/react-codemirror';
 import { StreamLanguage } from '@codemirror/language';
 import { shell } from '@codemirror/legacy-modes/mode/shell';
 import { vscodeDark as theme } from '@uiw/codemirror-theme-vscode';
-// import { githubDark as theme } from '@uiw/codemirror-theme-github';
 
 export default function Card() {
 
