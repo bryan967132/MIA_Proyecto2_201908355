@@ -1,13 +1,57 @@
 import React, { useState } from 'react';
+import { headers, API } from './headers.js'
 import { MDBContainer, MDBTabs, MDBTabsItem, MDBTabsLink, MDBTabsContent, MDBInput } from 'mdb-react-ui-kit';
+import Popup from "./Popup";
 
-export default function Login() {
+export default function Login({setActiveOption}) {
     const [idPart, setIdPart] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [message, setMessage] = useState('');
 
-    const handleJustifyClick = () => {
-        console.log(idPart, username, password)
+    const openPopup = () => {
+        setIsPopupOpen(true);
+    };
+
+    const closePopup = () => {
+        setIsPopupOpen(false);
+    };
+
+    const handleJustifyClick = async () => {
+        var msg = ''
+        if(idPart === '') {
+            msg += 'No ingresó ID de la partición montada'
+        }
+        if(username === '') {
+            msg += (msg !== '' ? '\n' : '') + 'No ingresó Nombre de Usuario'
+        }
+        if(password === '') {
+            msg += (msg !== '' ? '\n' : '') + 'No ingresó Contraseña'
+        }
+        if(msg !== '') {
+            setMessage(msg)
+            openPopup()
+            return
+        }
+        await fetch(`${API}/parse`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify({command: `login -user=${username} -pass=${password} -id=${idPart}`, 'line': 1}),
+        })
+        .then(response => response.json())
+        .then(response => {
+            if(response.response === ` -> login: Sesión iniciada exitosamente. (${username}) [1:1]`) {
+                setActiveOption('Reportes')
+            } else {
+                setMessage('Verifique sus credenciales.')
+                openPopup()
+            }
+        })
+        .catch(error => {
+            setMessage('Hubo un error al iniciar sesión.')
+            openPopup()
+        })
     };
 
     return (
@@ -49,6 +93,7 @@ export default function Login() {
                         </MDBTabsLink>
                     </MDBTabsItem>
                 </MDBTabs>
+                <Popup isOpen={isPopupOpen} onClose={closePopup} message={message}/>
             </MDBTabsContent>
         </MDBContainer>
     );

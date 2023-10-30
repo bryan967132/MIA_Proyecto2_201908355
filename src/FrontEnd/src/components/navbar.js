@@ -11,10 +11,7 @@ export default function Navbar(props) {
                             <div class="nav-link" style={{cursor: 'pointer'}} onClick={() => props.setActiveOption("Consola")}>Consola</div>
                         </li>
                         <li class="nav-item">
-                            <div class="nav-link" style={{cursor: 'pointer'}} onClick={() => props.setActiveOption("Login")}>Login</div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="nav-link" style={{cursor: 'pointer'}} onClick={() => props.setActiveOption("Reportes")}>Reportes</div>
+                            <div class="nav-link" style={{cursor: 'pointer'}} onClick={() => props.setActiveOption("Login")}>Reportes</div>
                         </li>
                     </ul>
                 </div>
