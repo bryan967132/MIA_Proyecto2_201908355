@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import './card.css'
+import './Card.css'
 import { headers, API } from './headers.js'
 import CodeMirror from '@uiw/react-codemirror';
 import { StreamLanguage } from '@codemirror/language';
