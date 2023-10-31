@@ -28,5 +28,5 @@ def isLogged():
     return jsonify({'isLogged': False})
 
 if __name__ == '__main__':
-    os.system('clear')
+    # os.system('clear')
     app.run(debug = True, port = 5000)
