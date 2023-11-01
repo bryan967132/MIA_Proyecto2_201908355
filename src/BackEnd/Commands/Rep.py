@@ -338,8 +338,6 @@ class Rep:
             os.makedirs(destdir)
         with open(absolutePathDot, 'w') as file:
             file.write(dot)
-        os.system(f'dot -T{extension} "{absolutePathDot}" -o "{absolutePath}"')
-        os.remove(absolutePath.replace(extension, "dot"))
         return self.__getSuccess(self.params['name'].lower(), diskname)
 
     def __percentage(self, start, firstEmptyByte, size) -> int or float:
