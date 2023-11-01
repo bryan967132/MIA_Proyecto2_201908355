@@ -1,5 +1,5 @@
 export const headers = new Headers()
-export const API = process.env.REACT_APP_API_URL;
+export const API = 'http://3.139.93.27:5000';
 headers.append('Content-Type', 'application/json');
 headers.append('Accept', 'application/json');
 headers.append('Access-Control-Allow-Origin', API);
