@@ -4,6 +4,7 @@ import { API } from './components/headers.js'
 import Navbar from './components/navbar'
 import Card from './components/Card.js';
 import Login from './components/Login';
+import Report from './components/Report'
 
 export default function App() {
     const [state, setState] = useState({activeOption: 'Consola'})
@@ -39,7 +40,7 @@ export default function App() {
                     : state.activeOption === "Login" ?
                         <Login setActiveOption={setActiveOption}/>
                     :
-                        <div>Contenido de Reportes</div>
+                        <Report/>
                 }
             </div>
         </div>
