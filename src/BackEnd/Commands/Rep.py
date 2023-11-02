@@ -338,7 +338,7 @@ class Rep:
             os.makedirs(destdir)
         with open(absolutePathDot, 'w') as file:
             file.write(dot)
-        os.system(f'aws cp {absolutePath} s3://proyecto2mia/reports/')
+        os.system(f'aws s3 cp {absolutePath} s3://proyecto2mia/reports/')
         return self.__getSuccess(self.params['name'].lower(), diskname)
 
     def __percentage(self, start, firstEmptyByte, size) -> int or float:
