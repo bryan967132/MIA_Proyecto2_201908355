@@ -341,10 +341,10 @@ class Rep:
             file.write(dot)
         os.system(f'dot -Tpng "{absolutePathDot}" -o "{absolutePathPng}"')
         os.remove(absolutePathDot)
-        os.system(f'aws s3 cp {absolutePathPng} s3://proyecto2mia/reports/{destdir}/'.replace('//', '/'))
-        for report in reports:
-            if not f'https://proyecto2mia.s3.us-east-2.amazonaws.com/reports/{absolutePathDot}'.replace('//', '/') in report[1]:
-                reports.append({absolutePathPng, f'https://proyecto2mia.s3.us-east-2.amazonaws.com/reports/{absolutePathDot}'.replace('//', '/')})
+        os.system(f'aws s3 cp {absolutePathPng} s3://' + 'proyecto2mia/reports/{destdir}/'.replace('//', '/'))
+        # for report in reports:
+        #     if not f'https://proyecto2mia.s3.us-east-2.amazonaws.com/reports/{absolutePathDot}'.replace('//', '/') in report[1]:
+        #         reports.append({absolutePathPng, f'https://proyecto2mia.s3.us-east-2.amazonaws.com/reports/{absolutePathDot}'.replace('//', '/')})
         return self.__getSuccess(self.params['name'].lower(), diskname)
 
     def __percentage(self, start, firstEmptyByte, size) -> int or float:
