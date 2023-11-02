@@ -334,13 +334,14 @@ class Rep:
         destdir = os.path.dirname(absolutePath)
         extension = os.path.basename(absolutePath).split('.')[1]
         absolutePathDot = absolutePath.replace(extension, 'dot')
+        absolutePathPng = absolutePath.replace(extension, "png")
         if not os.path.exists(destdir):
             os.makedirs(destdir)
         with open(absolutePathDot, 'w') as file:
             file.write(dot)
-        os.system(f'dot -Tpng "{absolutePathDot}" -o "{absolutePath.replace(extension, "png")}"')
-        os.remove(absolutePath.replace(extension, "dot"))
-        os.system(f'aws s3 cp {absolutePath.replace(extension, "png")} s3://proyecto2mia/reports/{destdir}/')
+        os.system(f'dot -Tpng "{absolutePathDot}" -o "{absolutePathPng}"')
+        os.remove(absolutePathDot)
+        os.system(f'aws s3 cp {absolutePathPng} s3://proyecto2mia/reports/{destdir}/')
         return self.__getSuccess(self.params['name'].lower(), diskname)
 
     def __percentage(self, start, firstEmptyByte, size) -> int or float:
