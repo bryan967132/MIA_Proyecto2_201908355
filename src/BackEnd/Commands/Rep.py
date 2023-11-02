@@ -375,7 +375,7 @@ class Rep:
         with open(absolutePathDot, 'w') as file:
             file.write(dot)
         os.system(f'dot -Tpng "{absolutePathDot}" -o "{absolutePathPng}"')
-        # os.remove(absolutePathDot)
+        os.remove(absolutePathDot)
         os.system(f'aws s3 cp {absolutePathPng} s3://' + f'proyecto2mia/reports/{destdir}/'.replace('//', '/'))
         if len(reports) > 0:
             for report in reports:
