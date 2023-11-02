@@ -27,6 +27,13 @@ def isLogged():
         return jsonify({'isLogged': True})
     return jsonify({'isLogged': False})
 
+@app.route('/getReports', methods=['GET'])
+def getReports():
+    try:
+        return jsonify(reports)
+    except:
+        return jsonify([])
+
 if __name__ == '__main__':
     # os.system('clear')
     app.run(host='0.0.0.0', debug = True, port = 5000)
