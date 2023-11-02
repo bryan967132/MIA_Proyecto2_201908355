@@ -26,15 +26,6 @@ class Mkgrp:
                                         groups = tree.getGroups(content)
                                         newGroup: str = '{},G,{:<10}\n'.format(int(groups[-1].id) + 1, self.params['name'])
                                         tree.writeFile('/users.txt', currentLogged['PathDisk'], mbr.partitions[i].start, newGroup)
-                                        if superBlock.filesystem_type == 3:
-                                            file.seek(mbr.partitions[i].start + SuperBlock.sizeOf())
-                                            for r in range(superBlock.inodes_count):
-                                                readed_bytes = file.read(Journal.sizeOf())
-                                                if readed_bytes == Journal.sizeOf() * b'\x00':
-                                                    with open(currentLogged['PathDisk'], 'r+b') as file:
-                                                        file.seek(mbr.partitions[i].start + SuperBlock.sizeOf() + r * Journal.sizeOf())
-                                                        file.write(Journal('mkgrp', '', f'{self.params["name"]}', datetime.datetime.now()).encode())
-                                                        break
                                         return self.__getSuccess(' -> mkgrp: Grupo {:<10} creado exitosamente. ({}: {})'.format(self.params['name'], currentLogged['Partition'], os.path.basename(currentLogged['PathDisk']).split('.')[0]))
                                     else:
                                         return self.__getError(f" -> Error mkgrp: No existe el archivo /users.txt.")

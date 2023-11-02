@@ -250,6 +250,7 @@ def p_MKUSERPARAMS(t):
 def p_MKUSERPARAM(t):
     '''MKUSERPARAM  : RW_user TK_equ TK_id
                     | RW_pass TK_equ TK_id
+                    | RW_pass TK_equ TK_number
                     | RW_grp  TK_equ TK_id'''
     t[0] = [t[1][1:].lower().strip(), t[3]]
 

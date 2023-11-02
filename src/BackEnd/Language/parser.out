@@ -72,85 +72,86 @@ Rule 66    MKUSERPARAMS -> MKUSERPARAMS MKUSERPARAM
 Rule 67    MKUSERPARAMS -> MKUSERPARAM
 Rule 68    MKUSERPARAM -> RW_user TK_equ TK_id
 Rule 69    MKUSERPARAM -> RW_pass TK_equ TK_id
-Rule 70    MKUSERPARAM -> RW_grp TK_equ TK_id
-Rule 71    RMUSR -> RW_rmusr RW_user TK_equ TK_id
-Rule 72    RMUSR -> RW_rmusr
-Rule 73    MKFILE -> RW_mkfile MKFILEPARAMS
-Rule 74    MKFILE -> RW_mkfile
-Rule 75    MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM
-Rule 76    MKFILEPARAMS -> MKFILEPARAM
-Rule 77    MKFILEPARAM -> RW_path TK_equ TK_path
-Rule 78    MKFILEPARAM -> RW_size TK_equ TK_number
-Rule 79    MKFILEPARAM -> RW_cont TK_equ TK_path
-Rule 80    MKFILEPARAM -> RW_r
-Rule 81    MKDIR -> RW_mkdir MKDIRPARAMS
-Rule 82    MKDIR -> RW_mkdir
-Rule 83    MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM
-Rule 84    MKDIRPARAMS -> MKDIRPARAM
-Rule 85    MKDIRPARAM -> RW_path TK_equ TK_path
-Rule 86    MKDIRPARAM -> RW_r
-Rule 87    REP -> RW_rep REPPARAMS
-Rule 88    REP -> RW_rep
-Rule 89    REPPARAMS -> REPPARAMS REPPARAM
-Rule 90    REPPARAMS -> REPPARAM
-Rule 91    REPPARAM -> RW_name TK_equ NAME
-Rule 92    REPPARAM -> RW_path TK_equ TK_path
-Rule 93    REPPARAM -> RW_id TK_equ TK_id
-Rule 94    REPPARAM -> RW_ruta TK_equ TK_path
-Rule 95    NAME -> RW_mbr
-Rule 96    NAME -> RW_disk
-Rule 97    NAME -> RW_bm_inode
-Rule 98    NAME -> RW_bm_block
-Rule 99    NAME -> RW_tree
-Rule 100   NAME -> RW_sb
-Rule 101   NAME -> RW_file
-Rule 102   COMMENTARY -> commentary
+Rule 70    MKUSERPARAM -> RW_pass TK_equ TK_number
+Rule 71    MKUSERPARAM -> RW_grp TK_equ TK_id
+Rule 72    RMUSR -> RW_rmusr RW_user TK_equ TK_id
+Rule 73    RMUSR -> RW_rmusr
+Rule 74    MKFILE -> RW_mkfile MKFILEPARAMS
+Rule 75    MKFILE -> RW_mkfile
+Rule 76    MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM
+Rule 77    MKFILEPARAMS -> MKFILEPARAM
+Rule 78    MKFILEPARAM -> RW_path TK_equ TK_path
+Rule 79    MKFILEPARAM -> RW_size TK_equ TK_number
+Rule 80    MKFILEPARAM -> RW_cont TK_equ TK_path
+Rule 81    MKFILEPARAM -> RW_r
+Rule 82    MKDIR -> RW_mkdir MKDIRPARAMS
+Rule 83    MKDIR -> RW_mkdir
+Rule 84    MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM
+Rule 85    MKDIRPARAMS -> MKDIRPARAM
+Rule 86    MKDIRPARAM -> RW_path TK_equ TK_path
+Rule 87    MKDIRPARAM -> RW_r
+Rule 88    REP -> RW_rep REPPARAMS
+Rule 89    REP -> RW_rep
+Rule 90    REPPARAMS -> REPPARAMS REPPARAM
+Rule 91    REPPARAMS -> REPPARAM
+Rule 92    REPPARAM -> RW_name TK_equ NAME
+Rule 93    REPPARAM -> RW_path TK_equ TK_path
+Rule 94    REPPARAM -> RW_id TK_equ TK_id
+Rule 95    REPPARAM -> RW_ruta TK_equ TK_path
+Rule 96    NAME -> RW_mbr
+Rule 97    NAME -> RW_disk
+Rule 98    NAME -> RW_bm_inode
+Rule 99    NAME -> RW_bm_block
+Rule 100   NAME -> RW_tree
+Rule 101   NAME -> RW_sb
+Rule 102   NAME -> RW_file
+Rule 103   COMMENTARY -> commentary
 
 Terminals, with rules where they appear
 
-RW_bm_block          : 98
-RW_bm_inode          : 97
-RW_cont              : 79
-RW_disk              : 96
+RW_bm_block          : 99
+RW_bm_inode          : 98
+RW_cont              : 80
+RW_disk              : 97
 RW_fdisk             : 29 30
-RW_file              : 101
+RW_file              : 102
 RW_fit               : 25 38
 RW_full              : 50
-RW_grp               : 70
-RW_id                : 49 58 93
+RW_grp               : 71
+RW_id                : 49 58 94
 RW_login             : 51 52
 RW_logout            : 59
-RW_mbr               : 95
-RW_mkdir             : 81 82
+RW_mbr               : 96
+RW_mkdir             : 82 83
 RW_mkdisk            : 19 20
-RW_mkfile            : 73 74
+RW_mkfile            : 74 75
 RW_mkfs              : 45 46
 RW_mkgrp             : 60 61
 RW_mkusr             : 64 65
 RW_mount             : 39 40
-RW_name              : 35 44 60 62 91
-RW_pass              : 56 57 69
-RW_path              : 24 27 34 43 77 85 92
-RW_r                 : 80 86
-RW_rep               : 87 88
+RW_name              : 35 44 60 62 92
+RW_pass              : 56 57 69 70
+RW_path              : 24 27 34 43 78 86 93
+RW_r                 : 81 87
+RW_rep               : 88 89
 RW_rmdisk            : 27 28
 RW_rmgrp             : 62 63
-RW_rmusr             : 71 72
-RW_ruta              : 94
-RW_sb                : 100
-RW_size              : 23 33 78
-RW_tree              : 99
+RW_rmusr             : 72 73
+RW_ruta              : 95
+RW_sb                : 101
+RW_size              : 23 33 79
+RW_tree              : 100
 RW_type              : 37 50
 RW_unit              : 26 36
-RW_user              : 55 68 71
-TK_equ               : 23 24 25 26 27 33 34 35 36 37 38 43 44 49 50 55 56 57 58 60 62 68 69 70 71 77 78 79 85 91 92 93 94
+RW_user              : 55 68 72
+TK_equ               : 23 24 25 26 27 33 34 35 36 37 38 43 44 49 50 55 56 57 58 60 62 68 69 70 71 72 78 79 80 86 92 93 94 95
 TK_fit               : 25 38
-TK_id                : 35 44 49 55 56 58 60 62 68 69 70 71 93
-TK_number            : 23 33 57 78
-TK_path              : 24 27 34 43 77 79 85 92 94
+TK_id                : 35 44 49 55 56 58 60 62 68 69 71 72 94
+TK_number            : 23 33 57 70 79
+TK_path              : 24 27 34 43 78 80 86 93 95
 TK_type              : 37
 TK_unit              : 26 36
-commentary           : 102
+commentary           : 103
 error                : 
 
 Nonterminals, with rules where they appear
@@ -167,14 +168,14 @@ LOGINPARAM           : 53 54
 LOGINPARAMS          : 51 53
 LOGOUT               : 10
 MKDIR                : 16
-MKDIRPARAM           : 83 84
-MKDIRPARAMS          : 81 83
+MKDIRPARAM           : 84 85
+MKDIRPARAMS          : 82 84
 MKDISK               : 4
 MKDISKPARAM          : 21 22
 MKDISKPARAMS         : 19 21
 MKFILE               : 15
-MKFILEPARAM          : 75 76
-MKFILEPARAMS         : 73 75
+MKFILEPARAM          : 76 77
+MKFILEPARAMS         : 74 76
 MKFS                 : 8
 MKFSPARAM            : 47 48
 MKFSPARAMS           : 45 47
@@ -185,10 +186,10 @@ MKUSR                : 13
 MOUNT                : 7
 MOUNTPARAM           : 41 42
 MOUNTPARAMS          : 39 41
-NAME                 : 91
+NAME                 : 92
 REP                  : 17
-REPPARAM             : 89 90
-REPPARAMS            : 87 89
+REPPARAM             : 90 91
+REPPARAMS            : 88 90
 RMDISK               : 5
 RMGRP                : 12
 RMUSR                : 14
@@ -235,15 +236,15 @@ state 0
     (63) RMGRP -> . RW_rmgrp
     (64) MKUSR -> . RW_mkusr MKUSERPARAMS
     (65) MKUSR -> . RW_mkusr
-    (71) RMUSR -> . RW_rmusr RW_user TK_equ TK_id
-    (72) RMUSR -> . RW_rmusr
-    (73) MKFILE -> . RW_mkfile MKFILEPARAMS
-    (74) MKFILE -> . RW_mkfile
-    (81) MKDIR -> . RW_mkdir MKDIRPARAMS
-    (82) MKDIR -> . RW_mkdir
-    (87) REP -> . RW_rep REPPARAMS
-    (88) REP -> . RW_rep
-    (102) COMMENTARY -> . commentary
+    (72) RMUSR -> . RW_rmusr RW_user TK_equ TK_id
+    (73) RMUSR -> . RW_rmusr
+    (74) MKFILE -> . RW_mkfile MKFILEPARAMS
+    (75) MKFILE -> . RW_mkfile
+    (82) MKDIR -> . RW_mkdir MKDIRPARAMS
+    (83) MKDIR -> . RW_mkdir
+    (88) REP -> . RW_rep REPPARAMS
+    (89) REP -> . RW_rep
+    (103) COMMENTARY -> . commentary
 
     RW_mkdisk       shift and go to state 19
     RW_rmdisk       shift and go to state 20
@@ -324,15 +325,15 @@ state 2
     (63) RMGRP -> . RW_rmgrp
     (64) MKUSR -> . RW_mkusr MKUSERPARAMS
     (65) MKUSR -> . RW_mkusr
-    (71) RMUSR -> . RW_rmusr RW_user TK_equ TK_id
-    (72) RMUSR -> . RW_rmusr
-    (73) MKFILE -> . RW_mkfile MKFILEPARAMS
-    (74) MKFILE -> . RW_mkfile
-    (81) MKDIR -> . RW_mkdir MKDIRPARAMS
-    (82) MKDIR -> . RW_mkdir
-    (87) REP -> . RW_rep REPPARAMS
-    (88) REP -> . RW_rep
-    (102) COMMENTARY -> . commentary
+    (72) RMUSR -> . RW_rmusr RW_user TK_equ TK_id
+    (73) RMUSR -> . RW_rmusr
+    (74) MKFILE -> . RW_mkfile MKFILEPARAMS
+    (75) MKFILE -> . RW_mkfile
+    (82) MKDIR -> . RW_mkdir MKDIRPARAMS
+    (83) MKDIR -> . RW_mkdir
+    (88) REP -> . RW_rep REPPARAMS
+    (89) REP -> . RW_rep
+    (103) COMMENTARY -> . commentary
 
     $end            reduce using rule 1 (INIT -> COMMANDS .)
     RW_mkdisk       shift and go to state 19
@@ -992,7 +993,8 @@ state 28
     (67) MKUSERPARAMS -> . MKUSERPARAM
     (68) MKUSERPARAM -> . RW_user TK_equ TK_id
     (69) MKUSERPARAM -> . RW_pass TK_equ TK_id
-    (70) MKUSERPARAM -> . RW_grp TK_equ TK_id
+    (70) MKUSERPARAM -> . RW_pass TK_equ TK_number
+    (71) MKUSERPARAM -> . RW_grp TK_equ TK_id
 
     RW_mkdisk       reduce using rule 65 (MKUSR -> RW_mkusr .)
     RW_rmdisk       reduce using rule 65 (MKUSR -> RW_mkusr .)
@@ -1019,55 +1021,55 @@ state 28
 
 state 29
 
-    (71) RMUSR -> RW_rmusr . RW_user TK_equ TK_id
-    (72) RMUSR -> RW_rmusr .
+    (72) RMUSR -> RW_rmusr . RW_user TK_equ TK_id
+    (73) RMUSR -> RW_rmusr .
 
     RW_user         shift and go to state 70
-    RW_mkdisk       reduce using rule 72 (RMUSR -> RW_rmusr .)
-    RW_rmdisk       reduce using rule 72 (RMUSR -> RW_rmusr .)
-    RW_fdisk        reduce using rule 72 (RMUSR -> RW_rmusr .)
-    RW_mount        reduce using rule 72 (RMUSR -> RW_rmusr .)
-    RW_mkfs         reduce using rule 72 (RMUSR -> RW_rmusr .)
-    RW_login        reduce using rule 72 (RMUSR -> RW_rmusr .)
-    RW_logout       reduce using rule 72 (RMUSR -> RW_rmusr .)
-    RW_mkgrp        reduce using rule 72 (RMUSR -> RW_rmusr .)
-    RW_rmgrp        reduce using rule 72 (RMUSR -> RW_rmusr .)
-    RW_mkusr        reduce using rule 72 (RMUSR -> RW_rmusr .)
-    RW_rmusr        reduce using rule 72 (RMUSR -> RW_rmusr .)
-    RW_mkfile       reduce using rule 72 (RMUSR -> RW_rmusr .)
-    RW_mkdir        reduce using rule 72 (RMUSR -> RW_rmusr .)
-    RW_rep          reduce using rule 72 (RMUSR -> RW_rmusr .)
-    commentary      reduce using rule 72 (RMUSR -> RW_rmusr .)
-    $end            reduce using rule 72 (RMUSR -> RW_rmusr .)
+    RW_mkdisk       reduce using rule 73 (RMUSR -> RW_rmusr .)
+    RW_rmdisk       reduce using rule 73 (RMUSR -> RW_rmusr .)
+    RW_fdisk        reduce using rule 73 (RMUSR -> RW_rmusr .)
+    RW_mount        reduce using rule 73 (RMUSR -> RW_rmusr .)
+    RW_mkfs         reduce using rule 73 (RMUSR -> RW_rmusr .)
+    RW_login        reduce using rule 73 (RMUSR -> RW_rmusr .)
+    RW_logout       reduce using rule 73 (RMUSR -> RW_rmusr .)
+    RW_mkgrp        reduce using rule 73 (RMUSR -> RW_rmusr .)
+    RW_rmgrp        reduce using rule 73 (RMUSR -> RW_rmusr .)
+    RW_mkusr        reduce using rule 73 (RMUSR -> RW_rmusr .)
+    RW_rmusr        reduce using rule 73 (RMUSR -> RW_rmusr .)
+    RW_mkfile       reduce using rule 73 (RMUSR -> RW_rmusr .)
+    RW_mkdir        reduce using rule 73 (RMUSR -> RW_rmusr .)
+    RW_rep          reduce using rule 73 (RMUSR -> RW_rmusr .)
+    commentary      reduce using rule 73 (RMUSR -> RW_rmusr .)
+    $end            reduce using rule 73 (RMUSR -> RW_rmusr .)
 
 
 state 30
 
-    (73) MKFILE -> RW_mkfile . MKFILEPARAMS
-    (74) MKFILE -> RW_mkfile .
-    (75) MKFILEPARAMS -> . MKFILEPARAMS MKFILEPARAM
-    (76) MKFILEPARAMS -> . MKFILEPARAM
-    (77) MKFILEPARAM -> . RW_path TK_equ TK_path
-    (78) MKFILEPARAM -> . RW_size TK_equ TK_number
-    (79) MKFILEPARAM -> . RW_cont TK_equ TK_path
-    (80) MKFILEPARAM -> . RW_r
+    (74) MKFILE -> RW_mkfile . MKFILEPARAMS
+    (75) MKFILE -> RW_mkfile .
+    (76) MKFILEPARAMS -> . MKFILEPARAMS MKFILEPARAM
+    (77) MKFILEPARAMS -> . MKFILEPARAM
+    (78) MKFILEPARAM -> . RW_path TK_equ TK_path
+    (79) MKFILEPARAM -> . RW_size TK_equ TK_number
+    (80) MKFILEPARAM -> . RW_cont TK_equ TK_path
+    (81) MKFILEPARAM -> . RW_r
 
-    RW_mkdisk       reduce using rule 74 (MKFILE -> RW_mkfile .)
-    RW_rmdisk       reduce using rule 74 (MKFILE -> RW_mkfile .)
-    RW_fdisk        reduce using rule 74 (MKFILE -> RW_mkfile .)
-    RW_mount        reduce using rule 74 (MKFILE -> RW_mkfile .)
-    RW_mkfs         reduce using rule 74 (MKFILE -> RW_mkfile .)
-    RW_login        reduce using rule 74 (MKFILE -> RW_mkfile .)
-    RW_logout       reduce using rule 74 (MKFILE -> RW_mkfile .)
-    RW_mkgrp        reduce using rule 74 (MKFILE -> RW_mkfile .)
-    RW_rmgrp        reduce using rule 74 (MKFILE -> RW_mkfile .)
-    RW_mkusr        reduce using rule 74 (MKFILE -> RW_mkfile .)
-    RW_rmusr        reduce using rule 74 (MKFILE -> RW_mkfile .)
-    RW_mkfile       reduce using rule 74 (MKFILE -> RW_mkfile .)
-    RW_mkdir        reduce using rule 74 (MKFILE -> RW_mkfile .)
-    RW_rep          reduce using rule 74 (MKFILE -> RW_mkfile .)
-    commentary      reduce using rule 74 (MKFILE -> RW_mkfile .)
-    $end            reduce using rule 74 (MKFILE -> RW_mkfile .)
+    RW_mkdisk       reduce using rule 75 (MKFILE -> RW_mkfile .)
+    RW_rmdisk       reduce using rule 75 (MKFILE -> RW_mkfile .)
+    RW_fdisk        reduce using rule 75 (MKFILE -> RW_mkfile .)
+    RW_mount        reduce using rule 75 (MKFILE -> RW_mkfile .)
+    RW_mkfs         reduce using rule 75 (MKFILE -> RW_mkfile .)
+    RW_login        reduce using rule 75 (MKFILE -> RW_mkfile .)
+    RW_logout       reduce using rule 75 (MKFILE -> RW_mkfile .)
+    RW_mkgrp        reduce using rule 75 (MKFILE -> RW_mkfile .)
+    RW_rmgrp        reduce using rule 75 (MKFILE -> RW_mkfile .)
+    RW_mkusr        reduce using rule 75 (MKFILE -> RW_mkfile .)
+    RW_rmusr        reduce using rule 75 (MKFILE -> RW_mkfile .)
+    RW_mkfile       reduce using rule 75 (MKFILE -> RW_mkfile .)
+    RW_mkdir        reduce using rule 75 (MKFILE -> RW_mkfile .)
+    RW_rep          reduce using rule 75 (MKFILE -> RW_mkfile .)
+    commentary      reduce using rule 75 (MKFILE -> RW_mkfile .)
+    $end            reduce using rule 75 (MKFILE -> RW_mkfile .)
     RW_path         shift and go to state 73
     RW_size         shift and go to state 74
     RW_cont         shift and go to state 75
@@ -1078,29 +1080,29 @@ state 30
 
 state 31
 
-    (81) MKDIR -> RW_mkdir . MKDIRPARAMS
-    (82) MKDIR -> RW_mkdir .
-    (83) MKDIRPARAMS -> . MKDIRPARAMS MKDIRPARAM
-    (84) MKDIRPARAMS -> . MKDIRPARAM
-    (85) MKDIRPARAM -> . RW_path TK_equ TK_path
-    (86) MKDIRPARAM -> . RW_r
+    (82) MKDIR -> RW_mkdir . MKDIRPARAMS
+    (83) MKDIR -> RW_mkdir .
+    (84) MKDIRPARAMS -> . MKDIRPARAMS MKDIRPARAM
+    (85) MKDIRPARAMS -> . MKDIRPARAM
+    (86) MKDIRPARAM -> . RW_path TK_equ TK_path
+    (87) MKDIRPARAM -> . RW_r
 
-    RW_mkdisk       reduce using rule 82 (MKDIR -> RW_mkdir .)
-    RW_rmdisk       reduce using rule 82 (MKDIR -> RW_mkdir .)
-    RW_fdisk        reduce using rule 82 (MKDIR -> RW_mkdir .)
-    RW_mount        reduce using rule 82 (MKDIR -> RW_mkdir .)
-    RW_mkfs         reduce using rule 82 (MKDIR -> RW_mkdir .)
-    RW_login        reduce using rule 82 (MKDIR -> RW_mkdir .)
-    RW_logout       reduce using rule 82 (MKDIR -> RW_mkdir .)
-    RW_mkgrp        reduce using rule 82 (MKDIR -> RW_mkdir .)
-    RW_rmgrp        reduce using rule 82 (MKDIR -> RW_mkdir .)
-    RW_mkusr        reduce using rule 82 (MKDIR -> RW_mkdir .)
-    RW_rmusr        reduce using rule 82 (MKDIR -> RW_mkdir .)
-    RW_mkfile       reduce using rule 82 (MKDIR -> RW_mkdir .)
-    RW_mkdir        reduce using rule 82 (MKDIR -> RW_mkdir .)
-    RW_rep          reduce using rule 82 (MKDIR -> RW_mkdir .)
-    commentary      reduce using rule 82 (MKDIR -> RW_mkdir .)
-    $end            reduce using rule 82 (MKDIR -> RW_mkdir .)
+    RW_mkdisk       reduce using rule 83 (MKDIR -> RW_mkdir .)
+    RW_rmdisk       reduce using rule 83 (MKDIR -> RW_mkdir .)
+    RW_fdisk        reduce using rule 83 (MKDIR -> RW_mkdir .)
+    RW_mount        reduce using rule 83 (MKDIR -> RW_mkdir .)
+    RW_mkfs         reduce using rule 83 (MKDIR -> RW_mkdir .)
+    RW_login        reduce using rule 83 (MKDIR -> RW_mkdir .)
+    RW_logout       reduce using rule 83 (MKDIR -> RW_mkdir .)
+    RW_mkgrp        reduce using rule 83 (MKDIR -> RW_mkdir .)
+    RW_rmgrp        reduce using rule 83 (MKDIR -> RW_mkdir .)
+    RW_mkusr        reduce using rule 83 (MKDIR -> RW_mkdir .)
+    RW_rmusr        reduce using rule 83 (MKDIR -> RW_mkdir .)
+    RW_mkfile       reduce using rule 83 (MKDIR -> RW_mkdir .)
+    RW_mkdir        reduce using rule 83 (MKDIR -> RW_mkdir .)
+    RW_rep          reduce using rule 83 (MKDIR -> RW_mkdir .)
+    commentary      reduce using rule 83 (MKDIR -> RW_mkdir .)
+    $end            reduce using rule 83 (MKDIR -> RW_mkdir .)
     RW_path         shift and go to state 79
     RW_r            shift and go to state 80
 
@@ -1109,31 +1111,31 @@ state 31
 
 state 32
 
-    (87) REP -> RW_rep . REPPARAMS
-    (88) REP -> RW_rep .
-    (89) REPPARAMS -> . REPPARAMS REPPARAM
-    (90) REPPARAMS -> . REPPARAM
-    (91) REPPARAM -> . RW_name TK_equ NAME
-    (92) REPPARAM -> . RW_path TK_equ TK_path
-    (93) REPPARAM -> . RW_id TK_equ TK_id
-    (94) REPPARAM -> . RW_ruta TK_equ TK_path
+    (88) REP -> RW_rep . REPPARAMS
+    (89) REP -> RW_rep .
+    (90) REPPARAMS -> . REPPARAMS REPPARAM
+    (91) REPPARAMS -> . REPPARAM
+    (92) REPPARAM -> . RW_name TK_equ NAME
+    (93) REPPARAM -> . RW_path TK_equ TK_path
+    (94) REPPARAM -> . RW_id TK_equ TK_id
+    (95) REPPARAM -> . RW_ruta TK_equ TK_path
 
-    RW_mkdisk       reduce using rule 88 (REP -> RW_rep .)
-    RW_rmdisk       reduce using rule 88 (REP -> RW_rep .)
-    RW_fdisk        reduce using rule 88 (REP -> RW_rep .)
-    RW_mount        reduce using rule 88 (REP -> RW_rep .)
-    RW_mkfs         reduce using rule 88 (REP -> RW_rep .)
-    RW_login        reduce using rule 88 (REP -> RW_rep .)
-    RW_logout       reduce using rule 88 (REP -> RW_rep .)
-    RW_mkgrp        reduce using rule 88 (REP -> RW_rep .)
-    RW_rmgrp        reduce using rule 88 (REP -> RW_rep .)
-    RW_mkusr        reduce using rule 88 (REP -> RW_rep .)
-    RW_rmusr        reduce using rule 88 (REP -> RW_rep .)
-    RW_mkfile       reduce using rule 88 (REP -> RW_rep .)
-    RW_mkdir        reduce using rule 88 (REP -> RW_rep .)
-    RW_rep          reduce using rule 88 (REP -> RW_rep .)
-    commentary      reduce using rule 88 (REP -> RW_rep .)
-    $end            reduce using rule 88 (REP -> RW_rep .)
+    RW_mkdisk       reduce using rule 89 (REP -> RW_rep .)
+    RW_rmdisk       reduce using rule 89 (REP -> RW_rep .)
+    RW_fdisk        reduce using rule 89 (REP -> RW_rep .)
+    RW_mount        reduce using rule 89 (REP -> RW_rep .)
+    RW_mkfs         reduce using rule 89 (REP -> RW_rep .)
+    RW_login        reduce using rule 89 (REP -> RW_rep .)
+    RW_logout       reduce using rule 89 (REP -> RW_rep .)
+    RW_mkgrp        reduce using rule 89 (REP -> RW_rep .)
+    RW_rmgrp        reduce using rule 89 (REP -> RW_rep .)
+    RW_mkusr        reduce using rule 89 (REP -> RW_rep .)
+    RW_rmusr        reduce using rule 89 (REP -> RW_rep .)
+    RW_mkfile       reduce using rule 89 (REP -> RW_rep .)
+    RW_mkdir        reduce using rule 89 (REP -> RW_rep .)
+    RW_rep          reduce using rule 89 (REP -> RW_rep .)
+    commentary      reduce using rule 89 (REP -> RW_rep .)
+    $end            reduce using rule 89 (REP -> RW_rep .)
     RW_name         shift and go to state 83
     RW_path         shift and go to state 84
     RW_id           shift and go to state 85
@@ -1144,24 +1146,24 @@ state 32
 
 state 33
 
-    (102) COMMENTARY -> commentary .
+    (103) COMMENTARY -> commentary .
 
-    RW_mkdisk       reduce using rule 102 (COMMENTARY -> commentary .)
-    RW_rmdisk       reduce using rule 102 (COMMENTARY -> commentary .)
-    RW_fdisk        reduce using rule 102 (COMMENTARY -> commentary .)
-    RW_mount        reduce using rule 102 (COMMENTARY -> commentary .)
-    RW_mkfs         reduce using rule 102 (COMMENTARY -> commentary .)
-    RW_login        reduce using rule 102 (COMMENTARY -> commentary .)
-    RW_logout       reduce using rule 102 (COMMENTARY -> commentary .)
-    RW_mkgrp        reduce using rule 102 (COMMENTARY -> commentary .)
-    RW_rmgrp        reduce using rule 102 (COMMENTARY -> commentary .)
-    RW_mkusr        reduce using rule 102 (COMMENTARY -> commentary .)
-    RW_rmusr        reduce using rule 102 (COMMENTARY -> commentary .)
-    RW_mkfile       reduce using rule 102 (COMMENTARY -> commentary .)
-    RW_mkdir        reduce using rule 102 (COMMENTARY -> commentary .)
-    RW_rep          reduce using rule 102 (COMMENTARY -> commentary .)
-    commentary      reduce using rule 102 (COMMENTARY -> commentary .)
-    $end            reduce using rule 102 (COMMENTARY -> commentary .)
+    RW_mkdisk       reduce using rule 103 (COMMENTARY -> commentary .)
+    RW_rmdisk       reduce using rule 103 (COMMENTARY -> commentary .)
+    RW_fdisk        reduce using rule 103 (COMMENTARY -> commentary .)
+    RW_mount        reduce using rule 103 (COMMENTARY -> commentary .)
+    RW_mkfs         reduce using rule 103 (COMMENTARY -> commentary .)
+    RW_login        reduce using rule 103 (COMMENTARY -> commentary .)
+    RW_logout       reduce using rule 103 (COMMENTARY -> commentary .)
+    RW_mkgrp        reduce using rule 103 (COMMENTARY -> commentary .)
+    RW_rmgrp        reduce using rule 103 (COMMENTARY -> commentary .)
+    RW_mkusr        reduce using rule 103 (COMMENTARY -> commentary .)
+    RW_rmusr        reduce using rule 103 (COMMENTARY -> commentary .)
+    RW_mkfile       reduce using rule 103 (COMMENTARY -> commentary .)
+    RW_mkdir        reduce using rule 103 (COMMENTARY -> commentary .)
+    RW_rep          reduce using rule 103 (COMMENTARY -> commentary .)
+    commentary      reduce using rule 103 (COMMENTARY -> commentary .)
+    $end            reduce using rule 103 (COMMENTARY -> commentary .)
 
 
 state 34
@@ -1615,7 +1617,8 @@ state 65
     (66) MKUSERPARAMS -> MKUSERPARAMS . MKUSERPARAM
     (68) MKUSERPARAM -> . RW_user TK_equ TK_id
     (69) MKUSERPARAM -> . RW_pass TK_equ TK_id
-    (70) MKUSERPARAM -> . RW_grp TK_equ TK_id
+    (70) MKUSERPARAM -> . RW_pass TK_equ TK_number
+    (71) MKUSERPARAM -> . RW_grp TK_equ TK_id
 
     RW_mkdisk       reduce using rule 64 (MKUSR -> RW_mkusr MKUSERPARAMS .)
     RW_rmdisk       reduce using rule 64 (MKUSR -> RW_mkusr MKUSERPARAMS .)
@@ -1674,49 +1677,50 @@ state 67
 state 68
 
     (69) MKUSERPARAM -> RW_pass . TK_equ TK_id
+    (70) MKUSERPARAM -> RW_pass . TK_equ TK_number
 
     TK_equ          shift and go to state 114
 
 
 state 69
 
-    (70) MKUSERPARAM -> RW_grp . TK_equ TK_id
+    (71) MKUSERPARAM -> RW_grp . TK_equ TK_id
 
     TK_equ          shift and go to state 115
 
 
 state 70
 
-    (71) RMUSR -> RW_rmusr RW_user . TK_equ TK_id
+    (72) RMUSR -> RW_rmusr RW_user . TK_equ TK_id
 
     TK_equ          shift and go to state 116
 
 
 state 71
 
-    (73) MKFILE -> RW_mkfile MKFILEPARAMS .
-    (75) MKFILEPARAMS -> MKFILEPARAMS . MKFILEPARAM
-    (77) MKFILEPARAM -> . RW_path TK_equ TK_path
-    (78) MKFILEPARAM -> . RW_size TK_equ TK_number
-    (79) MKFILEPARAM -> . RW_cont TK_equ TK_path
-    (80) MKFILEPARAM -> . RW_r
+    (74) MKFILE -> RW_mkfile MKFILEPARAMS .
+    (76) MKFILEPARAMS -> MKFILEPARAMS . MKFILEPARAM
+    (78) MKFILEPARAM -> . RW_path TK_equ TK_path
+    (79) MKFILEPARAM -> . RW_size TK_equ TK_number
+    (80) MKFILEPARAM -> . RW_cont TK_equ TK_path
+    (81) MKFILEPARAM -> . RW_r
 
-    RW_mkdisk       reduce using rule 73 (MKFILE -> RW_mkfile MKFILEPARAMS .)
-    RW_rmdisk       reduce using rule 73 (MKFILE -> RW_mkfile MKFILEPARAMS .)
-    RW_fdisk        reduce using rule 73 (MKFILE -> RW_mkfile MKFILEPARAMS .)
-    RW_mount        reduce using rule 73 (MKFILE -> RW_mkfile MKFILEPARAMS .)
-    RW_mkfs         reduce using rule 73 (MKFILE -> RW_mkfile MKFILEPARAMS .)
-    RW_login        reduce using rule 73 (MKFILE -> RW_mkfile MKFILEPARAMS .)
-    RW_logout       reduce using rule 73 (MKFILE -> RW_mkfile MKFILEPARAMS .)
-    RW_mkgrp        reduce using rule 73 (MKFILE -> RW_mkfile MKFILEPARAMS .)
-    RW_rmgrp        reduce using rule 73 (MKFILE -> RW_mkfile MKFILEPARAMS .)
-    RW_mkusr        reduce using rule 73 (MKFILE -> RW_mkfile MKFILEPARAMS .)
-    RW_rmusr        reduce using rule 73 (MKFILE -> RW_mkfile MKFILEPARAMS .)
-    RW_mkfile       reduce using rule 73 (MKFILE -> RW_mkfile MKFILEPARAMS .)
-    RW_mkdir        reduce using rule 73 (MKFILE -> RW_mkfile MKFILEPARAMS .)
-    RW_rep          reduce using rule 73 (MKFILE -> RW_mkfile MKFILEPARAMS .)
-    commentary      reduce using rule 73 (MKFILE -> RW_mkfile MKFILEPARAMS .)
-    $end            reduce using rule 73 (MKFILE -> RW_mkfile MKFILEPARAMS .)
+    RW_mkdisk       reduce using rule 74 (MKFILE -> RW_mkfile MKFILEPARAMS .)
+    RW_rmdisk       reduce using rule 74 (MKFILE -> RW_mkfile MKFILEPARAMS .)
+    RW_fdisk        reduce using rule 74 (MKFILE -> RW_mkfile MKFILEPARAMS .)
+    RW_mount        reduce using rule 74 (MKFILE -> RW_mkfile MKFILEPARAMS .)
+    RW_mkfs         reduce using rule 74 (MKFILE -> RW_mkfile MKFILEPARAMS .)
+    RW_login        reduce using rule 74 (MKFILE -> RW_mkfile MKFILEPARAMS .)
+    RW_logout       reduce using rule 74 (MKFILE -> RW_mkfile MKFILEPARAMS .)
+    RW_mkgrp        reduce using rule 74 (MKFILE -> RW_mkfile MKFILEPARAMS .)
+    RW_rmgrp        reduce using rule 74 (MKFILE -> RW_mkfile MKFILEPARAMS .)
+    RW_mkusr        reduce using rule 74 (MKFILE -> RW_mkfile MKFILEPARAMS .)
+    RW_rmusr        reduce using rule 74 (MKFILE -> RW_mkfile MKFILEPARAMS .)
+    RW_mkfile       reduce using rule 74 (MKFILE -> RW_mkfile MKFILEPARAMS .)
+    RW_mkdir        reduce using rule 74 (MKFILE -> RW_mkfile MKFILEPARAMS .)
+    RW_rep          reduce using rule 74 (MKFILE -> RW_mkfile MKFILEPARAMS .)
+    commentary      reduce using rule 74 (MKFILE -> RW_mkfile MKFILEPARAMS .)
+    $end            reduce using rule 74 (MKFILE -> RW_mkfile MKFILEPARAMS .)
     RW_path         shift and go to state 73
     RW_size         shift and go to state 74
     RW_cont         shift and go to state 75
@@ -1726,100 +1730,100 @@ state 71
 
 state 72
 
-    (76) MKFILEPARAMS -> MKFILEPARAM .
+    (77) MKFILEPARAMS -> MKFILEPARAM .
 
-    RW_path         reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    RW_size         reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    RW_cont         reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    RW_r            reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    RW_mkdisk       reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    RW_rmdisk       reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    RW_fdisk        reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    RW_mount        reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    RW_mkfs         reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    RW_login        reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    RW_logout       reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    RW_mkgrp        reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    RW_rmgrp        reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    RW_mkusr        reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    RW_rmusr        reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    RW_mkfile       reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    RW_mkdir        reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    RW_rep          reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    commentary      reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
-    $end            reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_path         reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_size         reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_cont         reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_r            reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_mkdisk       reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_rmdisk       reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_fdisk        reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_mount        reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_mkfs         reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_login        reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_logout       reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_mkgrp        reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_rmgrp        reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_mkusr        reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_rmusr        reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_mkfile       reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_mkdir        reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    RW_rep          reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    commentary      reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
+    $end            reduce using rule 77 (MKFILEPARAMS -> MKFILEPARAM .)
 
 
 state 73
 
-    (77) MKFILEPARAM -> RW_path . TK_equ TK_path
+    (78) MKFILEPARAM -> RW_path . TK_equ TK_path
 
     TK_equ          shift and go to state 118
 
 
 state 74
 
-    (78) MKFILEPARAM -> RW_size . TK_equ TK_number
+    (79) MKFILEPARAM -> RW_size . TK_equ TK_number
 
     TK_equ          shift and go to state 119
 
 
 state 75
 
-    (79) MKFILEPARAM -> RW_cont . TK_equ TK_path
+    (80) MKFILEPARAM -> RW_cont . TK_equ TK_path
 
     TK_equ          shift and go to state 120
 
 
 state 76
 
-    (80) MKFILEPARAM -> RW_r .
+    (81) MKFILEPARAM -> RW_r .
 
-    RW_path         reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    RW_size         reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    RW_cont         reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    RW_r            reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    RW_mkdisk       reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    RW_rmdisk       reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    RW_fdisk        reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    RW_mount        reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    RW_mkfs         reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    RW_login        reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    RW_logout       reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    RW_mkgrp        reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    RW_rmgrp        reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    RW_mkusr        reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    RW_rmusr        reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    RW_mkfile       reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    RW_mkdir        reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    RW_rep          reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    commentary      reduce using rule 80 (MKFILEPARAM -> RW_r .)
-    $end            reduce using rule 80 (MKFILEPARAM -> RW_r .)
+    RW_path         reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    RW_size         reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    RW_cont         reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    RW_r            reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    RW_mkdisk       reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    RW_rmdisk       reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    RW_fdisk        reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    RW_mount        reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    RW_mkfs         reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    RW_login        reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    RW_logout       reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    RW_mkgrp        reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    RW_rmgrp        reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    RW_mkusr        reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    RW_rmusr        reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    RW_mkfile       reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    RW_mkdir        reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    RW_rep          reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    commentary      reduce using rule 81 (MKFILEPARAM -> RW_r .)
+    $end            reduce using rule 81 (MKFILEPARAM -> RW_r .)
 
 
 state 77
 
-    (81) MKDIR -> RW_mkdir MKDIRPARAMS .
-    (83) MKDIRPARAMS -> MKDIRPARAMS . MKDIRPARAM
-    (85) MKDIRPARAM -> . RW_path TK_equ TK_path
-    (86) MKDIRPARAM -> . RW_r
+    (82) MKDIR -> RW_mkdir MKDIRPARAMS .
+    (84) MKDIRPARAMS -> MKDIRPARAMS . MKDIRPARAM
+    (86) MKDIRPARAM -> . RW_path TK_equ TK_path
+    (87) MKDIRPARAM -> . RW_r
 
-    RW_mkdisk       reduce using rule 81 (MKDIR -> RW_mkdir MKDIRPARAMS .)
-    RW_rmdisk       reduce using rule 81 (MKDIR -> RW_mkdir MKDIRPARAMS .)
-    RW_fdisk        reduce using rule 81 (MKDIR -> RW_mkdir MKDIRPARAMS .)
-    RW_mount        reduce using rule 81 (MKDIR -> RW_mkdir MKDIRPARAMS .)
-    RW_mkfs         reduce using rule 81 (MKDIR -> RW_mkdir MKDIRPARAMS .)
-    RW_login        reduce using rule 81 (MKDIR -> RW_mkdir MKDIRPARAMS .)
-    RW_logout       reduce using rule 81 (MKDIR -> RW_mkdir MKDIRPARAMS .)
-    RW_mkgrp        reduce using rule 81 (MKDIR -> RW_mkdir MKDIRPARAMS .)
-    RW_rmgrp        reduce using rule 81 (MKDIR -> RW_mkdir MKDIRPARAMS .)
-    RW_mkusr        reduce using rule 81 (MKDIR -> RW_mkdir MKDIRPARAMS .)
-    RW_rmusr        reduce using rule 81 (MKDIR -> RW_mkdir MKDIRPARAMS .)
-    RW_mkfile       reduce using rule 81 (MKDIR -> RW_mkdir MKDIRPARAMS .)
-    RW_mkdir        reduce using rule 81 (MKDIR -> RW_mkdir MKDIRPARAMS .)
-    RW_rep          reduce using rule 81 (MKDIR -> RW_mkdir MKDIRPARAMS .)
-    commentary      reduce using rule 81 (MKDIR -> RW_mkdir MKDIRPARAMS .)
-    $end            reduce using rule 81 (MKDIR -> RW_mkdir MKDIRPARAMS .)
+    RW_mkdisk       reduce using rule 82 (MKDIR -> RW_mkdir MKDIRPARAMS .)
+    RW_rmdisk       reduce using rule 82 (MKDIR -> RW_mkdir MKDIRPARAMS .)
+    RW_fdisk        reduce using rule 82 (MKDIR -> RW_mkdir MKDIRPARAMS .)
+    RW_mount        reduce using rule 82 (MKDIR -> RW_mkdir MKDIRPARAMS .)
+    RW_mkfs         reduce using rule 82 (MKDIR -> RW_mkdir MKDIRPARAMS .)
+    RW_login        reduce using rule 82 (MKDIR -> RW_mkdir MKDIRPARAMS .)
+    RW_logout       reduce using rule 82 (MKDIR -> RW_mkdir MKDIRPARAMS .)
+    RW_mkgrp        reduce using rule 82 (MKDIR -> RW_mkdir MKDIRPARAMS .)
+    RW_rmgrp        reduce using rule 82 (MKDIR -> RW_mkdir MKDIRPARAMS .)
+    RW_mkusr        reduce using rule 82 (MKDIR -> RW_mkdir MKDIRPARAMS .)
+    RW_rmusr        reduce using rule 82 (MKDIR -> RW_mkdir MKDIRPARAMS .)
+    RW_mkfile       reduce using rule 82 (MKDIR -> RW_mkdir MKDIRPARAMS .)
+    RW_mkdir        reduce using rule 82 (MKDIR -> RW_mkdir MKDIRPARAMS .)
+    RW_rep          reduce using rule 82 (MKDIR -> RW_mkdir MKDIRPARAMS .)
+    commentary      reduce using rule 82 (MKDIR -> RW_mkdir MKDIRPARAMS .)
+    $end            reduce using rule 82 (MKDIR -> RW_mkdir MKDIRPARAMS .)
     RW_path         shift and go to state 79
     RW_r            shift and go to state 80
 
@@ -1827,84 +1831,84 @@ state 77
 
 state 78
 
-    (84) MKDIRPARAMS -> MKDIRPARAM .
+    (85) MKDIRPARAMS -> MKDIRPARAM .
 
-    RW_path         reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
-    RW_r            reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
-    RW_mkdisk       reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
-    RW_rmdisk       reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
-    RW_fdisk        reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
-    RW_mount        reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
-    RW_mkfs         reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
-    RW_login        reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
-    RW_logout       reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
-    RW_mkgrp        reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
-    RW_rmgrp        reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
-    RW_mkusr        reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
-    RW_rmusr        reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
-    RW_mkfile       reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
-    RW_mkdir        reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
-    RW_rep          reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
-    commentary      reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
-    $end            reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAM .)
+    RW_path         reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
+    RW_r            reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
+    RW_mkdisk       reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
+    RW_rmdisk       reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
+    RW_fdisk        reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
+    RW_mount        reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
+    RW_mkfs         reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
+    RW_login        reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
+    RW_logout       reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
+    RW_mkgrp        reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
+    RW_rmgrp        reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
+    RW_mkusr        reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
+    RW_rmusr        reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
+    RW_mkfile       reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
+    RW_mkdir        reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
+    RW_rep          reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
+    commentary      reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
+    $end            reduce using rule 85 (MKDIRPARAMS -> MKDIRPARAM .)
 
 
 state 79
 
-    (85) MKDIRPARAM -> RW_path . TK_equ TK_path
+    (86) MKDIRPARAM -> RW_path . TK_equ TK_path
 
     TK_equ          shift and go to state 122
 
 
 state 80
 
-    (86) MKDIRPARAM -> RW_r .
+    (87) MKDIRPARAM -> RW_r .
 
-    RW_path         reduce using rule 86 (MKDIRPARAM -> RW_r .)
-    RW_r            reduce using rule 86 (MKDIRPARAM -> RW_r .)
-    RW_mkdisk       reduce using rule 86 (MKDIRPARAM -> RW_r .)
-    RW_rmdisk       reduce using rule 86 (MKDIRPARAM -> RW_r .)
-    RW_fdisk        reduce using rule 86 (MKDIRPARAM -> RW_r .)
-    RW_mount        reduce using rule 86 (MKDIRPARAM -> RW_r .)
-    RW_mkfs         reduce using rule 86 (MKDIRPARAM -> RW_r .)
-    RW_login        reduce using rule 86 (MKDIRPARAM -> RW_r .)
-    RW_logout       reduce using rule 86 (MKDIRPARAM -> RW_r .)
-    RW_mkgrp        reduce using rule 86 (MKDIRPARAM -> RW_r .)
-    RW_rmgrp        reduce using rule 86 (MKDIRPARAM -> RW_r .)
-    RW_mkusr        reduce using rule 86 (MKDIRPARAM -> RW_r .)
-    RW_rmusr        reduce using rule 86 (MKDIRPARAM -> RW_r .)
-    RW_mkfile       reduce using rule 86 (MKDIRPARAM -> RW_r .)
-    RW_mkdir        reduce using rule 86 (MKDIRPARAM -> RW_r .)
-    RW_rep          reduce using rule 86 (MKDIRPARAM -> RW_r .)
-    commentary      reduce using rule 86 (MKDIRPARAM -> RW_r .)
-    $end            reduce using rule 86 (MKDIRPARAM -> RW_r .)
+    RW_path         reduce using rule 87 (MKDIRPARAM -> RW_r .)
+    RW_r            reduce using rule 87 (MKDIRPARAM -> RW_r .)
+    RW_mkdisk       reduce using rule 87 (MKDIRPARAM -> RW_r .)
+    RW_rmdisk       reduce using rule 87 (MKDIRPARAM -> RW_r .)
+    RW_fdisk        reduce using rule 87 (MKDIRPARAM -> RW_r .)
+    RW_mount        reduce using rule 87 (MKDIRPARAM -> RW_r .)
+    RW_mkfs         reduce using rule 87 (MKDIRPARAM -> RW_r .)
+    RW_login        reduce using rule 87 (MKDIRPARAM -> RW_r .)
+    RW_logout       reduce using rule 87 (MKDIRPARAM -> RW_r .)
+    RW_mkgrp        reduce using rule 87 (MKDIRPARAM -> RW_r .)
+    RW_rmgrp        reduce using rule 87 (MKDIRPARAM -> RW_r .)
+    RW_mkusr        reduce using rule 87 (MKDIRPARAM -> RW_r .)
+    RW_rmusr        reduce using rule 87 (MKDIRPARAM -> RW_r .)
+    RW_mkfile       reduce using rule 87 (MKDIRPARAM -> RW_r .)
+    RW_mkdir        reduce using rule 87 (MKDIRPARAM -> RW_r .)
+    RW_rep          reduce using rule 87 (MKDIRPARAM -> RW_r .)
+    commentary      reduce using rule 87 (MKDIRPARAM -> RW_r .)
+    $end            reduce using rule 87 (MKDIRPARAM -> RW_r .)
 
 
 state 81
 
-    (87) REP -> RW_rep REPPARAMS .
-    (89) REPPARAMS -> REPPARAMS . REPPARAM
-    (91) REPPARAM -> . RW_name TK_equ NAME
-    (92) REPPARAM -> . RW_path TK_equ TK_path
-    (93) REPPARAM -> . RW_id TK_equ TK_id
-    (94) REPPARAM -> . RW_ruta TK_equ TK_path
+    (88) REP -> RW_rep REPPARAMS .
+    (90) REPPARAMS -> REPPARAMS . REPPARAM
+    (92) REPPARAM -> . RW_name TK_equ NAME
+    (93) REPPARAM -> . RW_path TK_equ TK_path
+    (94) REPPARAM -> . RW_id TK_equ TK_id
+    (95) REPPARAM -> . RW_ruta TK_equ TK_path
 
-    RW_mkdisk       reduce using rule 87 (REP -> RW_rep REPPARAMS .)
-    RW_rmdisk       reduce using rule 87 (REP -> RW_rep REPPARAMS .)
-    RW_fdisk        reduce using rule 87 (REP -> RW_rep REPPARAMS .)
-    RW_mount        reduce using rule 87 (REP -> RW_rep REPPARAMS .)
-    RW_mkfs         reduce using rule 87 (REP -> RW_rep REPPARAMS .)
-    RW_login        reduce using rule 87 (REP -> RW_rep REPPARAMS .)
-    RW_logout       reduce using rule 87 (REP -> RW_rep REPPARAMS .)
-    RW_mkgrp        reduce using rule 87 (REP -> RW_rep REPPARAMS .)
-    RW_rmgrp        reduce using rule 87 (REP -> RW_rep REPPARAMS .)
-    RW_mkusr        reduce using rule 87 (REP -> RW_rep REPPARAMS .)
-    RW_rmusr        reduce using rule 87 (REP -> RW_rep REPPARAMS .)
-    RW_mkfile       reduce using rule 87 (REP -> RW_rep REPPARAMS .)
-    RW_mkdir        reduce using rule 87 (REP -> RW_rep REPPARAMS .)
-    RW_rep          reduce using rule 87 (REP -> RW_rep REPPARAMS .)
-    commentary      reduce using rule 87 (REP -> RW_rep REPPARAMS .)
-    $end            reduce using rule 87 (REP -> RW_rep REPPARAMS .)
+    RW_mkdisk       reduce using rule 88 (REP -> RW_rep REPPARAMS .)
+    RW_rmdisk       reduce using rule 88 (REP -> RW_rep REPPARAMS .)
+    RW_fdisk        reduce using rule 88 (REP -> RW_rep REPPARAMS .)
+    RW_mount        reduce using rule 88 (REP -> RW_rep REPPARAMS .)
+    RW_mkfs         reduce using rule 88 (REP -> RW_rep REPPARAMS .)
+    RW_login        reduce using rule 88 (REP -> RW_rep REPPARAMS .)
+    RW_logout       reduce using rule 88 (REP -> RW_rep REPPARAMS .)
+    RW_mkgrp        reduce using rule 88 (REP -> RW_rep REPPARAMS .)
+    RW_rmgrp        reduce using rule 88 (REP -> RW_rep REPPARAMS .)
+    RW_mkusr        reduce using rule 88 (REP -> RW_rep REPPARAMS .)
+    RW_rmusr        reduce using rule 88 (REP -> RW_rep REPPARAMS .)
+    RW_mkfile       reduce using rule 88 (REP -> RW_rep REPPARAMS .)
+    RW_mkdir        reduce using rule 88 (REP -> RW_rep REPPARAMS .)
+    RW_rep          reduce using rule 88 (REP -> RW_rep REPPARAMS .)
+    commentary      reduce using rule 88 (REP -> RW_rep REPPARAMS .)
+    $end            reduce using rule 88 (REP -> RW_rep REPPARAMS .)
     RW_name         shift and go to state 83
     RW_path         shift and go to state 84
     RW_id           shift and go to state 85
@@ -1914,54 +1918,54 @@ state 81
 
 state 82
 
-    (90) REPPARAMS -> REPPARAM .
+    (91) REPPARAMS -> REPPARAM .
 
-    RW_name         reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    RW_path         reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    RW_id           reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    RW_ruta         reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    RW_mkdisk       reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    RW_rmdisk       reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    RW_fdisk        reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    RW_mount        reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    RW_mkfs         reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    RW_login        reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    RW_logout       reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    RW_mkgrp        reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    RW_rmgrp        reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    RW_mkusr        reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    RW_rmusr        reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    RW_mkfile       reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    RW_mkdir        reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    RW_rep          reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    commentary      reduce using rule 90 (REPPARAMS -> REPPARAM .)
-    $end            reduce using rule 90 (REPPARAMS -> REPPARAM .)
+    RW_name         reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    RW_path         reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    RW_id           reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    RW_ruta         reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    RW_mkdisk       reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    RW_rmdisk       reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    RW_fdisk        reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    RW_mount        reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    RW_mkfs         reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    RW_login        reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    RW_logout       reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    RW_mkgrp        reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    RW_rmgrp        reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    RW_mkusr        reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    RW_rmusr        reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    RW_mkfile       reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    RW_mkdir        reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    RW_rep          reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    commentary      reduce using rule 91 (REPPARAMS -> REPPARAM .)
+    $end            reduce using rule 91 (REPPARAMS -> REPPARAM .)
 
 
 state 83
 
-    (91) REPPARAM -> RW_name . TK_equ NAME
+    (92) REPPARAM -> RW_name . TK_equ NAME
 
     TK_equ          shift and go to state 124
 
 
 state 84
 
-    (92) REPPARAM -> RW_path . TK_equ TK_path
+    (93) REPPARAM -> RW_path . TK_equ TK_path
 
     TK_equ          shift and go to state 125
 
 
 state 85
 
-    (93) REPPARAM -> RW_id . TK_equ TK_id
+    (94) REPPARAM -> RW_id . TK_equ TK_id
 
     TK_equ          shift and go to state 126
 
 
 state 86
 
-    (94) REPPARAM -> RW_ruta . TK_equ TK_path
+    (95) REPPARAM -> RW_ruta . TK_equ TK_path
 
     TK_equ          shift and go to state 127
 
@@ -2270,168 +2274,170 @@ state 113
 state 114
 
     (69) MKUSERPARAM -> RW_pass TK_equ . TK_id
+    (70) MKUSERPARAM -> RW_pass TK_equ . TK_number
 
     TK_id           shift and go to state 150
+    TK_number       shift and go to state 151
 
 
 state 115
 
-    (70) MKUSERPARAM -> RW_grp TK_equ . TK_id
-
-    TK_id           shift and go to state 151
-
-
-state 116
-
-    (71) RMUSR -> RW_rmusr RW_user TK_equ . TK_id
+    (71) MKUSERPARAM -> RW_grp TK_equ . TK_id
 
     TK_id           shift and go to state 152
 
 
+state 116
+
+    (72) RMUSR -> RW_rmusr RW_user TK_equ . TK_id
+
+    TK_id           shift and go to state 153
+
+
 state 117
 
-    (75) MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .
+    (76) MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .
 
-    RW_path         reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    RW_size         reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    RW_cont         reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    RW_r            reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    RW_mkdisk       reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    RW_rmdisk       reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    RW_fdisk        reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    RW_mount        reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    RW_mkfs         reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    RW_login        reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    RW_logout       reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    RW_mkgrp        reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    RW_rmgrp        reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    RW_mkusr        reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    RW_rmusr        reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    RW_mkfile       reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    RW_mkdir        reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    RW_rep          reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    commentary      reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
-    $end            reduce using rule 75 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_path         reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_size         reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_cont         reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_r            reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_mkdisk       reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_rmdisk       reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_fdisk        reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_mount        reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_mkfs         reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_login        reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_logout       reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_mkgrp        reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_rmgrp        reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_mkusr        reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_rmusr        reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_mkfile       reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_mkdir        reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    RW_rep          reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    commentary      reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
+    $end            reduce using rule 76 (MKFILEPARAMS -> MKFILEPARAMS MKFILEPARAM .)
 
 
 state 118
 
-    (77) MKFILEPARAM -> RW_path TK_equ . TK_path
+    (78) MKFILEPARAM -> RW_path TK_equ . TK_path
 
-    TK_path         shift and go to state 153
+    TK_path         shift and go to state 154
 
 
 state 119
 
-    (78) MKFILEPARAM -> RW_size TK_equ . TK_number
+    (79) MKFILEPARAM -> RW_size TK_equ . TK_number
 
-    TK_number       shift and go to state 154
+    TK_number       shift and go to state 155
 
 
 state 120
 
-    (79) MKFILEPARAM -> RW_cont TK_equ . TK_path
-
-    TK_path         shift and go to state 155
-
-
-state 121
-
-    (83) MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .
-
-    RW_path         reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-    RW_r            reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-    RW_mkdisk       reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-    RW_rmdisk       reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-    RW_fdisk        reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-    RW_mount        reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-    RW_mkfs         reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-    RW_login        reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-    RW_logout       reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-    RW_mkgrp        reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-    RW_rmgrp        reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-    RW_mkusr        reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-    RW_rmusr        reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-    RW_mkfile       reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-    RW_mkdir        reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-    RW_rep          reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-    commentary      reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-    $end            reduce using rule 83 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
-
-
-state 122
-
-    (85) MKDIRPARAM -> RW_path TK_equ . TK_path
+    (80) MKFILEPARAM -> RW_cont TK_equ . TK_path
 
     TK_path         shift and go to state 156
 
 
+state 121
+
+    (84) MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .
+
+    RW_path         reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+    RW_r            reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+    RW_mkdisk       reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+    RW_rmdisk       reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+    RW_fdisk        reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+    RW_mount        reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+    RW_mkfs         reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+    RW_login        reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+    RW_logout       reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+    RW_mkgrp        reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+    RW_rmgrp        reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+    RW_mkusr        reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+    RW_rmusr        reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+    RW_mkfile       reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+    RW_mkdir        reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+    RW_rep          reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+    commentary      reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+    $end            reduce using rule 84 (MKDIRPARAMS -> MKDIRPARAMS MKDIRPARAM .)
+
+
+state 122
+
+    (86) MKDIRPARAM -> RW_path TK_equ . TK_path
+
+    TK_path         shift and go to state 157
+
+
 state 123
 
-    (89) REPPARAMS -> REPPARAMS REPPARAM .
+    (90) REPPARAMS -> REPPARAMS REPPARAM .
 
-    RW_name         reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    RW_path         reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    RW_id           reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    RW_ruta         reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    RW_mkdisk       reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    RW_rmdisk       reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    RW_fdisk        reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    RW_mount        reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    RW_mkfs         reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    RW_login        reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    RW_logout       reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    RW_mkgrp        reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    RW_rmgrp        reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    RW_mkusr        reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    RW_rmusr        reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    RW_mkfile       reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    RW_mkdir        reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    RW_rep          reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    commentary      reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
-    $end            reduce using rule 89 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_name         reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_path         reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_id           reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_ruta         reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_mkdisk       reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_rmdisk       reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_fdisk        reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_mount        reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_mkfs         reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_login        reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_logout       reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_mkgrp        reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_rmgrp        reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_mkusr        reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_rmusr        reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_mkfile       reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_mkdir        reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    RW_rep          reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    commentary      reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
+    $end            reduce using rule 90 (REPPARAMS -> REPPARAMS REPPARAM .)
 
 
 state 124
 
-    (91) REPPARAM -> RW_name TK_equ . NAME
-    (95) NAME -> . RW_mbr
-    (96) NAME -> . RW_disk
-    (97) NAME -> . RW_bm_inode
-    (98) NAME -> . RW_bm_block
-    (99) NAME -> . RW_tree
-    (100) NAME -> . RW_sb
-    (101) NAME -> . RW_file
+    (92) REPPARAM -> RW_name TK_equ . NAME
+    (96) NAME -> . RW_mbr
+    (97) NAME -> . RW_disk
+    (98) NAME -> . RW_bm_inode
+    (99) NAME -> . RW_bm_block
+    (100) NAME -> . RW_tree
+    (101) NAME -> . RW_sb
+    (102) NAME -> . RW_file
 
-    RW_mbr          shift and go to state 158
-    RW_disk         shift and go to state 159
-    RW_bm_inode     shift and go to state 160
-    RW_bm_block     shift and go to state 161
-    RW_tree         shift and go to state 162
-    RW_sb           shift and go to state 163
-    RW_file         shift and go to state 164
+    RW_mbr          shift and go to state 159
+    RW_disk         shift and go to state 160
+    RW_bm_inode     shift and go to state 161
+    RW_bm_block     shift and go to state 162
+    RW_tree         shift and go to state 163
+    RW_sb           shift and go to state 164
+    RW_file         shift and go to state 165
 
-    NAME                           shift and go to state 157
+    NAME                           shift and go to state 158
 
 state 125
 
-    (92) REPPARAM -> RW_path TK_equ . TK_path
+    (93) REPPARAM -> RW_path TK_equ . TK_path
 
-    TK_path         shift and go to state 165
+    TK_path         shift and go to state 166
 
 
 state 126
 
-    (93) REPPARAM -> RW_id TK_equ . TK_id
+    (94) REPPARAM -> RW_id TK_equ . TK_id
 
-    TK_id           shift and go to state 166
+    TK_id           shift and go to state 167
 
 
 state 127
 
-    (94) REPPARAM -> RW_ruta TK_equ . TK_path
+    (95) REPPARAM -> RW_ruta TK_equ . TK_path
 
-    TK_path         shift and go to state 167
+    TK_path         shift and go to state 168
 
 
 state 128
@@ -3020,435 +3026,460 @@ state 150
 
 state 151
 
-    (70) MKUSERPARAM -> RW_grp TK_equ TK_id .
+    (70) MKUSERPARAM -> RW_pass TK_equ TK_number .
 
-    RW_user         reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    RW_pass         reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    RW_grp          reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    RW_mkdisk       reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    RW_rmdisk       reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    RW_fdisk        reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    RW_mount        reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    RW_mkfs         reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    RW_login        reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    RW_logout       reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    RW_mkgrp        reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    RW_rmgrp        reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    RW_mkusr        reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    RW_rmusr        reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    RW_mkfile       reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    RW_mkdir        reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    RW_rep          reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    commentary      reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
-    $end            reduce using rule 70 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    RW_user         reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    RW_pass         reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    RW_grp          reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    RW_mkdisk       reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    RW_rmdisk       reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    RW_fdisk        reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    RW_mount        reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    RW_mkfs         reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    RW_login        reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    RW_logout       reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    RW_mkgrp        reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    RW_rmgrp        reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    RW_mkusr        reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    RW_rmusr        reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    RW_mkfile       reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    RW_mkdir        reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    RW_rep          reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    commentary      reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
+    $end            reduce using rule 70 (MKUSERPARAM -> RW_pass TK_equ TK_number .)
 
 
 state 152
 
-    (71) RMUSR -> RW_rmusr RW_user TK_equ TK_id .
+    (71) MKUSERPARAM -> RW_grp TK_equ TK_id .
 
-    RW_mkdisk       reduce using rule 71 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
-    RW_rmdisk       reduce using rule 71 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
-    RW_fdisk        reduce using rule 71 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
-    RW_mount        reduce using rule 71 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
-    RW_mkfs         reduce using rule 71 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
-    RW_login        reduce using rule 71 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
-    RW_logout       reduce using rule 71 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
-    RW_mkgrp        reduce using rule 71 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
-    RW_rmgrp        reduce using rule 71 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
-    RW_mkusr        reduce using rule 71 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
-    RW_rmusr        reduce using rule 71 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
-    RW_mkfile       reduce using rule 71 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
-    RW_mkdir        reduce using rule 71 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
-    RW_rep          reduce using rule 71 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
-    commentary      reduce using rule 71 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
-    $end            reduce using rule 71 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
+    RW_user         reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    RW_pass         reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    RW_grp          reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    RW_mkdisk       reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    RW_rmdisk       reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    RW_fdisk        reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    RW_mount        reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    RW_mkfs         reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    RW_login        reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    RW_logout       reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    RW_mkgrp        reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    RW_rmgrp        reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    RW_mkusr        reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    RW_rmusr        reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    RW_mkfile       reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    RW_mkdir        reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    RW_rep          reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    commentary      reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
+    $end            reduce using rule 71 (MKUSERPARAM -> RW_grp TK_equ TK_id .)
 
 
 state 153
 
-    (77) MKFILEPARAM -> RW_path TK_equ TK_path .
+    (72) RMUSR -> RW_rmusr RW_user TK_equ TK_id .
 
-    RW_path         reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    RW_size         reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    RW_cont         reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    RW_r            reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    RW_mkdisk       reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    RW_rmdisk       reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    RW_fdisk        reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    RW_mount        reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    RW_mkfs         reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    RW_login        reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    RW_logout       reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    RW_mkgrp        reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    RW_rmgrp        reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    RW_mkusr        reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    RW_rmusr        reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    RW_mkfile       reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    RW_mkdir        reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    RW_rep          reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    commentary      reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
-    $end            reduce using rule 77 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_mkdisk       reduce using rule 72 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
+    RW_rmdisk       reduce using rule 72 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
+    RW_fdisk        reduce using rule 72 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
+    RW_mount        reduce using rule 72 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
+    RW_mkfs         reduce using rule 72 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
+    RW_login        reduce using rule 72 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
+    RW_logout       reduce using rule 72 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
+    RW_mkgrp        reduce using rule 72 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
+    RW_rmgrp        reduce using rule 72 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
+    RW_mkusr        reduce using rule 72 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
+    RW_rmusr        reduce using rule 72 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
+    RW_mkfile       reduce using rule 72 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
+    RW_mkdir        reduce using rule 72 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
+    RW_rep          reduce using rule 72 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
+    commentary      reduce using rule 72 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
+    $end            reduce using rule 72 (RMUSR -> RW_rmusr RW_user TK_equ TK_id .)
 
 
 state 154
 
-    (78) MKFILEPARAM -> RW_size TK_equ TK_number .
+    (78) MKFILEPARAM -> RW_path TK_equ TK_path .
 
-    RW_path         reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    RW_size         reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    RW_cont         reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    RW_r            reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    RW_mkdisk       reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    RW_rmdisk       reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    RW_fdisk        reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    RW_mount        reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    RW_mkfs         reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    RW_login        reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    RW_logout       reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    RW_mkgrp        reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    RW_rmgrp        reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    RW_mkusr        reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    RW_rmusr        reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    RW_mkfile       reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    RW_mkdir        reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    RW_rep          reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    commentary      reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
-    $end            reduce using rule 78 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_path         reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_size         reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_cont         reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_r            reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_mkdisk       reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_rmdisk       reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_fdisk        reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_mount        reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_mkfs         reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_login        reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_logout       reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_mkgrp        reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_rmgrp        reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_mkusr        reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_rmusr        reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_mkfile       reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_mkdir        reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    RW_rep          reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    commentary      reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
+    $end            reduce using rule 78 (MKFILEPARAM -> RW_path TK_equ TK_path .)
 
 
 state 155
 
-    (79) MKFILEPARAM -> RW_cont TK_equ TK_path .
+    (79) MKFILEPARAM -> RW_size TK_equ TK_number .
 
-    RW_path         reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    RW_size         reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    RW_cont         reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    RW_r            reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    RW_mkdisk       reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    RW_rmdisk       reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    RW_fdisk        reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    RW_mount        reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    RW_mkfs         reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    RW_login        reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    RW_logout       reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    RW_mkgrp        reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    RW_rmgrp        reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    RW_mkusr        reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    RW_rmusr        reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    RW_mkfile       reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    RW_mkdir        reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    RW_rep          reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    commentary      reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
-    $end            reduce using rule 79 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_path         reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_size         reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_cont         reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_r            reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_mkdisk       reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_rmdisk       reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_fdisk        reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_mount        reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_mkfs         reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_login        reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_logout       reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_mkgrp        reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_rmgrp        reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_mkusr        reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_rmusr        reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_mkfile       reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_mkdir        reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    RW_rep          reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    commentary      reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
+    $end            reduce using rule 79 (MKFILEPARAM -> RW_size TK_equ TK_number .)
 
 
 state 156
 
-    (85) MKDIRPARAM -> RW_path TK_equ TK_path .
+    (80) MKFILEPARAM -> RW_cont TK_equ TK_path .
 
-    RW_path         reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
-    RW_r            reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
-    RW_mkdisk       reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
-    RW_rmdisk       reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
-    RW_fdisk        reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
-    RW_mount        reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
-    RW_mkfs         reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
-    RW_login        reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
-    RW_logout       reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
-    RW_mkgrp        reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
-    RW_rmgrp        reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
-    RW_mkusr        reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
-    RW_rmusr        reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
-    RW_mkfile       reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
-    RW_mkdir        reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
-    RW_rep          reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
-    commentary      reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
-    $end            reduce using rule 85 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    RW_path         reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_size         reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_cont         reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_r            reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_mkdisk       reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_rmdisk       reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_fdisk        reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_mount        reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_mkfs         reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_login        reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_logout       reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_mkgrp        reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_rmgrp        reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_mkusr        reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_rmusr        reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_mkfile       reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_mkdir        reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    RW_rep          reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    commentary      reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
+    $end            reduce using rule 80 (MKFILEPARAM -> RW_cont TK_equ TK_path .)
 
 
 state 157
 
-    (91) REPPARAM -> RW_name TK_equ NAME .
+    (86) MKDIRPARAM -> RW_path TK_equ TK_path .
 
-    RW_name         reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    RW_path         reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    RW_id           reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    RW_ruta         reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    RW_mkdisk       reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    RW_rmdisk       reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    RW_fdisk        reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    RW_mount        reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    RW_mkfs         reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    RW_login        reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    RW_logout       reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    RW_mkgrp        reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    RW_rmgrp        reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    RW_mkusr        reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    RW_rmusr        reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    RW_mkfile       reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    RW_mkdir        reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    RW_rep          reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    commentary      reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
-    $end            reduce using rule 91 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_path         reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    RW_r            reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    RW_mkdisk       reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    RW_rmdisk       reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    RW_fdisk        reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    RW_mount        reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    RW_mkfs         reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    RW_login        reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    RW_logout       reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    RW_mkgrp        reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    RW_rmgrp        reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    RW_mkusr        reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    RW_rmusr        reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    RW_mkfile       reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    RW_mkdir        reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    RW_rep          reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    commentary      reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
+    $end            reduce using rule 86 (MKDIRPARAM -> RW_path TK_equ TK_path .)
 
 
 state 158
 
-    (95) NAME -> RW_mbr .
+    (92) REPPARAM -> RW_name TK_equ NAME .
 
-    RW_name         reduce using rule 95 (NAME -> RW_mbr .)
-    RW_path         reduce using rule 95 (NAME -> RW_mbr .)
-    RW_id           reduce using rule 95 (NAME -> RW_mbr .)
-    RW_ruta         reduce using rule 95 (NAME -> RW_mbr .)
-    RW_mkdisk       reduce using rule 95 (NAME -> RW_mbr .)
-    RW_rmdisk       reduce using rule 95 (NAME -> RW_mbr .)
-    RW_fdisk        reduce using rule 95 (NAME -> RW_mbr .)
-    RW_mount        reduce using rule 95 (NAME -> RW_mbr .)
-    RW_mkfs         reduce using rule 95 (NAME -> RW_mbr .)
-    RW_login        reduce using rule 95 (NAME -> RW_mbr .)
-    RW_logout       reduce using rule 95 (NAME -> RW_mbr .)
-    RW_mkgrp        reduce using rule 95 (NAME -> RW_mbr .)
-    RW_rmgrp        reduce using rule 95 (NAME -> RW_mbr .)
-    RW_mkusr        reduce using rule 95 (NAME -> RW_mbr .)
-    RW_rmusr        reduce using rule 95 (NAME -> RW_mbr .)
-    RW_mkfile       reduce using rule 95 (NAME -> RW_mbr .)
-    RW_mkdir        reduce using rule 95 (NAME -> RW_mbr .)
-    RW_rep          reduce using rule 95 (NAME -> RW_mbr .)
-    commentary      reduce using rule 95 (NAME -> RW_mbr .)
-    $end            reduce using rule 95 (NAME -> RW_mbr .)
+    RW_name         reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_path         reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_id           reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_ruta         reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_mkdisk       reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_rmdisk       reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_fdisk        reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_mount        reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_mkfs         reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_login        reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_logout       reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_mkgrp        reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_rmgrp        reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_mkusr        reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_rmusr        reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_mkfile       reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_mkdir        reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    RW_rep          reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    commentary      reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
+    $end            reduce using rule 92 (REPPARAM -> RW_name TK_equ NAME .)
 
 
 state 159
 
-    (96) NAME -> RW_disk .
+    (96) NAME -> RW_mbr .
 
-    RW_name         reduce using rule 96 (NAME -> RW_disk .)
-    RW_path         reduce using rule 96 (NAME -> RW_disk .)
-    RW_id           reduce using rule 96 (NAME -> RW_disk .)
-    RW_ruta         reduce using rule 96 (NAME -> RW_disk .)
-    RW_mkdisk       reduce using rule 96 (NAME -> RW_disk .)
-    RW_rmdisk       reduce using rule 96 (NAME -> RW_disk .)
-    RW_fdisk        reduce using rule 96 (NAME -> RW_disk .)
-    RW_mount        reduce using rule 96 (NAME -> RW_disk .)
-    RW_mkfs         reduce using rule 96 (NAME -> RW_disk .)
-    RW_login        reduce using rule 96 (NAME -> RW_disk .)
-    RW_logout       reduce using rule 96 (NAME -> RW_disk .)
-    RW_mkgrp        reduce using rule 96 (NAME -> RW_disk .)
-    RW_rmgrp        reduce using rule 96 (NAME -> RW_disk .)
-    RW_mkusr        reduce using rule 96 (NAME -> RW_disk .)
-    RW_rmusr        reduce using rule 96 (NAME -> RW_disk .)
-    RW_mkfile       reduce using rule 96 (NAME -> RW_disk .)
-    RW_mkdir        reduce using rule 96 (NAME -> RW_disk .)
-    RW_rep          reduce using rule 96 (NAME -> RW_disk .)
-    commentary      reduce using rule 96 (NAME -> RW_disk .)
-    $end            reduce using rule 96 (NAME -> RW_disk .)
+    RW_name         reduce using rule 96 (NAME -> RW_mbr .)
+    RW_path         reduce using rule 96 (NAME -> RW_mbr .)
+    RW_id           reduce using rule 96 (NAME -> RW_mbr .)
+    RW_ruta         reduce using rule 96 (NAME -> RW_mbr .)
+    RW_mkdisk       reduce using rule 96 (NAME -> RW_mbr .)
+    RW_rmdisk       reduce using rule 96 (NAME -> RW_mbr .)
+    RW_fdisk        reduce using rule 96 (NAME -> RW_mbr .)
+    RW_mount        reduce using rule 96 (NAME -> RW_mbr .)
+    RW_mkfs         reduce using rule 96 (NAME -> RW_mbr .)
+    RW_login        reduce using rule 96 (NAME -> RW_mbr .)
+    RW_logout       reduce using rule 96 (NAME -> RW_mbr .)
+    RW_mkgrp        reduce using rule 96 (NAME -> RW_mbr .)
+    RW_rmgrp        reduce using rule 96 (NAME -> RW_mbr .)
+    RW_mkusr        reduce using rule 96 (NAME -> RW_mbr .)
+    RW_rmusr        reduce using rule 96 (NAME -> RW_mbr .)
+    RW_mkfile       reduce using rule 96 (NAME -> RW_mbr .)
+    RW_mkdir        reduce using rule 96 (NAME -> RW_mbr .)
+    RW_rep          reduce using rule 96 (NAME -> RW_mbr .)
+    commentary      reduce using rule 96 (NAME -> RW_mbr .)
+    $end            reduce using rule 96 (NAME -> RW_mbr .)
 
 
 state 160
 
-    (97) NAME -> RW_bm_inode .
+    (97) NAME -> RW_disk .
 
-    RW_name         reduce using rule 97 (NAME -> RW_bm_inode .)
-    RW_path         reduce using rule 97 (NAME -> RW_bm_inode .)
-    RW_id           reduce using rule 97 (NAME -> RW_bm_inode .)
-    RW_ruta         reduce using rule 97 (NAME -> RW_bm_inode .)
-    RW_mkdisk       reduce using rule 97 (NAME -> RW_bm_inode .)
-    RW_rmdisk       reduce using rule 97 (NAME -> RW_bm_inode .)
-    RW_fdisk        reduce using rule 97 (NAME -> RW_bm_inode .)
-    RW_mount        reduce using rule 97 (NAME -> RW_bm_inode .)
-    RW_mkfs         reduce using rule 97 (NAME -> RW_bm_inode .)
-    RW_login        reduce using rule 97 (NAME -> RW_bm_inode .)
-    RW_logout       reduce using rule 97 (NAME -> RW_bm_inode .)
-    RW_mkgrp        reduce using rule 97 (NAME -> RW_bm_inode .)
-    RW_rmgrp        reduce using rule 97 (NAME -> RW_bm_inode .)
-    RW_mkusr        reduce using rule 97 (NAME -> RW_bm_inode .)
-    RW_rmusr        reduce using rule 97 (NAME -> RW_bm_inode .)
-    RW_mkfile       reduce using rule 97 (NAME -> RW_bm_inode .)
-    RW_mkdir        reduce using rule 97 (NAME -> RW_bm_inode .)
-    RW_rep          reduce using rule 97 (NAME -> RW_bm_inode .)
-    commentary      reduce using rule 97 (NAME -> RW_bm_inode .)
-    $end            reduce using rule 97 (NAME -> RW_bm_inode .)
+    RW_name         reduce using rule 97 (NAME -> RW_disk .)
+    RW_path         reduce using rule 97 (NAME -> RW_disk .)
+    RW_id           reduce using rule 97 (NAME -> RW_disk .)
+    RW_ruta         reduce using rule 97 (NAME -> RW_disk .)
+    RW_mkdisk       reduce using rule 97 (NAME -> RW_disk .)
+    RW_rmdisk       reduce using rule 97 (NAME -> RW_disk .)
+    RW_fdisk        reduce using rule 97 (NAME -> RW_disk .)
+    RW_mount        reduce using rule 97 (NAME -> RW_disk .)
+    RW_mkfs         reduce using rule 97 (NAME -> RW_disk .)
+    RW_login        reduce using rule 97 (NAME -> RW_disk .)
+    RW_logout       reduce using rule 97 (NAME -> RW_disk .)
+    RW_mkgrp        reduce using rule 97 (NAME -> RW_disk .)
+    RW_rmgrp        reduce using rule 97 (NAME -> RW_disk .)
+    RW_mkusr        reduce using rule 97 (NAME -> RW_disk .)
+    RW_rmusr        reduce using rule 97 (NAME -> RW_disk .)
+    RW_mkfile       reduce using rule 97 (NAME -> RW_disk .)
+    RW_mkdir        reduce using rule 97 (NAME -> RW_disk .)
+    RW_rep          reduce using rule 97 (NAME -> RW_disk .)
+    commentary      reduce using rule 97 (NAME -> RW_disk .)
+    $end            reduce using rule 97 (NAME -> RW_disk .)
 
 
 state 161
 
-    (98) NAME -> RW_bm_block .
+    (98) NAME -> RW_bm_inode .
 
-    RW_name         reduce using rule 98 (NAME -> RW_bm_block .)
-    RW_path         reduce using rule 98 (NAME -> RW_bm_block .)
-    RW_id           reduce using rule 98 (NAME -> RW_bm_block .)
-    RW_ruta         reduce using rule 98 (NAME -> RW_bm_block .)
-    RW_mkdisk       reduce using rule 98 (NAME -> RW_bm_block .)
-    RW_rmdisk       reduce using rule 98 (NAME -> RW_bm_block .)
-    RW_fdisk        reduce using rule 98 (NAME -> RW_bm_block .)
-    RW_mount        reduce using rule 98 (NAME -> RW_bm_block .)
-    RW_mkfs         reduce using rule 98 (NAME -> RW_bm_block .)
-    RW_login        reduce using rule 98 (NAME -> RW_bm_block .)
-    RW_logout       reduce using rule 98 (NAME -> RW_bm_block .)
-    RW_mkgrp        reduce using rule 98 (NAME -> RW_bm_block .)
-    RW_rmgrp        reduce using rule 98 (NAME -> RW_bm_block .)
-    RW_mkusr        reduce using rule 98 (NAME -> RW_bm_block .)
-    RW_rmusr        reduce using rule 98 (NAME -> RW_bm_block .)
-    RW_mkfile       reduce using rule 98 (NAME -> RW_bm_block .)
-    RW_mkdir        reduce using rule 98 (NAME -> RW_bm_block .)
-    RW_rep          reduce using rule 98 (NAME -> RW_bm_block .)
-    commentary      reduce using rule 98 (NAME -> RW_bm_block .)
-    $end            reduce using rule 98 (NAME -> RW_bm_block .)
+    RW_name         reduce using rule 98 (NAME -> RW_bm_inode .)
+    RW_path         reduce using rule 98 (NAME -> RW_bm_inode .)
+    RW_id           reduce using rule 98 (NAME -> RW_bm_inode .)
+    RW_ruta         reduce using rule 98 (NAME -> RW_bm_inode .)
+    RW_mkdisk       reduce using rule 98 (NAME -> RW_bm_inode .)
+    RW_rmdisk       reduce using rule 98 (NAME -> RW_bm_inode .)
+    RW_fdisk        reduce using rule 98 (NAME -> RW_bm_inode .)
+    RW_mount        reduce using rule 98 (NAME -> RW_bm_inode .)
+    RW_mkfs         reduce using rule 98 (NAME -> RW_bm_inode .)
+    RW_login        reduce using rule 98 (NAME -> RW_bm_inode .)
+    RW_logout       reduce using rule 98 (NAME -> RW_bm_inode .)
+    RW_mkgrp        reduce using rule 98 (NAME -> RW_bm_inode .)
+    RW_rmgrp        reduce using rule 98 (NAME -> RW_bm_inode .)
+    RW_mkusr        reduce using rule 98 (NAME -> RW_bm_inode .)
+    RW_rmusr        reduce using rule 98 (NAME -> RW_bm_inode .)
+    RW_mkfile       reduce using rule 98 (NAME -> RW_bm_inode .)
+    RW_mkdir        reduce using rule 98 (NAME -> RW_bm_inode .)
+    RW_rep          reduce using rule 98 (NAME -> RW_bm_inode .)
+    commentary      reduce using rule 98 (NAME -> RW_bm_inode .)
+    $end            reduce using rule 98 (NAME -> RW_bm_inode .)
 
 
 state 162
 
-    (99) NAME -> RW_tree .
+    (99) NAME -> RW_bm_block .
 
-    RW_name         reduce using rule 99 (NAME -> RW_tree .)
-    RW_path         reduce using rule 99 (NAME -> RW_tree .)
-    RW_id           reduce using rule 99 (NAME -> RW_tree .)
-    RW_ruta         reduce using rule 99 (NAME -> RW_tree .)
-    RW_mkdisk       reduce using rule 99 (NAME -> RW_tree .)
-    RW_rmdisk       reduce using rule 99 (NAME -> RW_tree .)
-    RW_fdisk        reduce using rule 99 (NAME -> RW_tree .)
-    RW_mount        reduce using rule 99 (NAME -> RW_tree .)
-    RW_mkfs         reduce using rule 99 (NAME -> RW_tree .)
-    RW_login        reduce using rule 99 (NAME -> RW_tree .)
-    RW_logout       reduce using rule 99 (NAME -> RW_tree .)
-    RW_mkgrp        reduce using rule 99 (NAME -> RW_tree .)
-    RW_rmgrp        reduce using rule 99 (NAME -> RW_tree .)
-    RW_mkusr        reduce using rule 99 (NAME -> RW_tree .)
-    RW_rmusr        reduce using rule 99 (NAME -> RW_tree .)
-    RW_mkfile       reduce using rule 99 (NAME -> RW_tree .)
-    RW_mkdir        reduce using rule 99 (NAME -> RW_tree .)
-    RW_rep          reduce using rule 99 (NAME -> RW_tree .)
-    commentary      reduce using rule 99 (NAME -> RW_tree .)
-    $end            reduce using rule 99 (NAME -> RW_tree .)
+    RW_name         reduce using rule 99 (NAME -> RW_bm_block .)
+    RW_path         reduce using rule 99 (NAME -> RW_bm_block .)
+    RW_id           reduce using rule 99 (NAME -> RW_bm_block .)
+    RW_ruta         reduce using rule 99 (NAME -> RW_bm_block .)
+    RW_mkdisk       reduce using rule 99 (NAME -> RW_bm_block .)
+    RW_rmdisk       reduce using rule 99 (NAME -> RW_bm_block .)
+    RW_fdisk        reduce using rule 99 (NAME -> RW_bm_block .)
+    RW_mount        reduce using rule 99 (NAME -> RW_bm_block .)
+    RW_mkfs         reduce using rule 99 (NAME -> RW_bm_block .)
+    RW_login        reduce using rule 99 (NAME -> RW_bm_block .)
+    RW_logout       reduce using rule 99 (NAME -> RW_bm_block .)
+    RW_mkgrp        reduce using rule 99 (NAME -> RW_bm_block .)
+    RW_rmgrp        reduce using rule 99 (NAME -> RW_bm_block .)
+    RW_mkusr        reduce using rule 99 (NAME -> RW_bm_block .)
+    RW_rmusr        reduce using rule 99 (NAME -> RW_bm_block .)
+    RW_mkfile       reduce using rule 99 (NAME -> RW_bm_block .)
+    RW_mkdir        reduce using rule 99 (NAME -> RW_bm_block .)
+    RW_rep          reduce using rule 99 (NAME -> RW_bm_block .)
+    commentary      reduce using rule 99 (NAME -> RW_bm_block .)
+    $end            reduce using rule 99 (NAME -> RW_bm_block .)
 
 
 state 163
 
-    (100) NAME -> RW_sb .
+    (100) NAME -> RW_tree .
 
-    RW_name         reduce using rule 100 (NAME -> RW_sb .)
-    RW_path         reduce using rule 100 (NAME -> RW_sb .)
-    RW_id           reduce using rule 100 (NAME -> RW_sb .)
-    RW_ruta         reduce using rule 100 (NAME -> RW_sb .)
-    RW_mkdisk       reduce using rule 100 (NAME -> RW_sb .)
-    RW_rmdisk       reduce using rule 100 (NAME -> RW_sb .)
-    RW_fdisk        reduce using rule 100 (NAME -> RW_sb .)
-    RW_mount        reduce using rule 100 (NAME -> RW_sb .)
-    RW_mkfs         reduce using rule 100 (NAME -> RW_sb .)
-    RW_login        reduce using rule 100 (NAME -> RW_sb .)
-    RW_logout       reduce using rule 100 (NAME -> RW_sb .)
-    RW_mkgrp        reduce using rule 100 (NAME -> RW_sb .)
-    RW_rmgrp        reduce using rule 100 (NAME -> RW_sb .)
-    RW_mkusr        reduce using rule 100 (NAME -> RW_sb .)
-    RW_rmusr        reduce using rule 100 (NAME -> RW_sb .)
-    RW_mkfile       reduce using rule 100 (NAME -> RW_sb .)
-    RW_mkdir        reduce using rule 100 (NAME -> RW_sb .)
-    RW_rep          reduce using rule 100 (NAME -> RW_sb .)
-    commentary      reduce using rule 100 (NAME -> RW_sb .)
-    $end            reduce using rule 100 (NAME -> RW_sb .)
+    RW_name         reduce using rule 100 (NAME -> RW_tree .)
+    RW_path         reduce using rule 100 (NAME -> RW_tree .)
+    RW_id           reduce using rule 100 (NAME -> RW_tree .)
+    RW_ruta         reduce using rule 100 (NAME -> RW_tree .)
+    RW_mkdisk       reduce using rule 100 (NAME -> RW_tree .)
+    RW_rmdisk       reduce using rule 100 (NAME -> RW_tree .)
+    RW_fdisk        reduce using rule 100 (NAME -> RW_tree .)
+    RW_mount        reduce using rule 100 (NAME -> RW_tree .)
+    RW_mkfs         reduce using rule 100 (NAME -> RW_tree .)
+    RW_login        reduce using rule 100 (NAME -> RW_tree .)
+    RW_logout       reduce using rule 100 (NAME -> RW_tree .)
+    RW_mkgrp        reduce using rule 100 (NAME -> RW_tree .)
+    RW_rmgrp        reduce using rule 100 (NAME -> RW_tree .)
+    RW_mkusr        reduce using rule 100 (NAME -> RW_tree .)
+    RW_rmusr        reduce using rule 100 (NAME -> RW_tree .)
+    RW_mkfile       reduce using rule 100 (NAME -> RW_tree .)
+    RW_mkdir        reduce using rule 100 (NAME -> RW_tree .)
+    RW_rep          reduce using rule 100 (NAME -> RW_tree .)
+    commentary      reduce using rule 100 (NAME -> RW_tree .)
+    $end            reduce using rule 100 (NAME -> RW_tree .)
 
 
 state 164
 
-    (101) NAME -> RW_file .
+    (101) NAME -> RW_sb .
 
-    RW_name         reduce using rule 101 (NAME -> RW_file .)
-    RW_path         reduce using rule 101 (NAME -> RW_file .)
-    RW_id           reduce using rule 101 (NAME -> RW_file .)
-    RW_ruta         reduce using rule 101 (NAME -> RW_file .)
-    RW_mkdisk       reduce using rule 101 (NAME -> RW_file .)
-    RW_rmdisk       reduce using rule 101 (NAME -> RW_file .)
-    RW_fdisk        reduce using rule 101 (NAME -> RW_file .)
-    RW_mount        reduce using rule 101 (NAME -> RW_file .)
-    RW_mkfs         reduce using rule 101 (NAME -> RW_file .)
-    RW_login        reduce using rule 101 (NAME -> RW_file .)
-    RW_logout       reduce using rule 101 (NAME -> RW_file .)
-    RW_mkgrp        reduce using rule 101 (NAME -> RW_file .)
-    RW_rmgrp        reduce using rule 101 (NAME -> RW_file .)
-    RW_mkusr        reduce using rule 101 (NAME -> RW_file .)
-    RW_rmusr        reduce using rule 101 (NAME -> RW_file .)
-    RW_mkfile       reduce using rule 101 (NAME -> RW_file .)
-    RW_mkdir        reduce using rule 101 (NAME -> RW_file .)
-    RW_rep          reduce using rule 101 (NAME -> RW_file .)
-    commentary      reduce using rule 101 (NAME -> RW_file .)
-    $end            reduce using rule 101 (NAME -> RW_file .)
+    RW_name         reduce using rule 101 (NAME -> RW_sb .)
+    RW_path         reduce using rule 101 (NAME -> RW_sb .)
+    RW_id           reduce using rule 101 (NAME -> RW_sb .)
+    RW_ruta         reduce using rule 101 (NAME -> RW_sb .)
+    RW_mkdisk       reduce using rule 101 (NAME -> RW_sb .)
+    RW_rmdisk       reduce using rule 101 (NAME -> RW_sb .)
+    RW_fdisk        reduce using rule 101 (NAME -> RW_sb .)
+    RW_mount        reduce using rule 101 (NAME -> RW_sb .)
+    RW_mkfs         reduce using rule 101 (NAME -> RW_sb .)
+    RW_login        reduce using rule 101 (NAME -> RW_sb .)
+    RW_logout       reduce using rule 101 (NAME -> RW_sb .)
+    RW_mkgrp        reduce using rule 101 (NAME -> RW_sb .)
+    RW_rmgrp        reduce using rule 101 (NAME -> RW_sb .)
+    RW_mkusr        reduce using rule 101 (NAME -> RW_sb .)
+    RW_rmusr        reduce using rule 101 (NAME -> RW_sb .)
+    RW_mkfile       reduce using rule 101 (NAME -> RW_sb .)
+    RW_mkdir        reduce using rule 101 (NAME -> RW_sb .)
+    RW_rep          reduce using rule 101 (NAME -> RW_sb .)
+    commentary      reduce using rule 101 (NAME -> RW_sb .)
+    $end            reduce using rule 101 (NAME -> RW_sb .)
 
 
 state 165
 
-    (92) REPPARAM -> RW_path TK_equ TK_path .
+    (102) NAME -> RW_file .
 
-    RW_name         reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    RW_path         reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    RW_id           reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    RW_ruta         reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    RW_mkdisk       reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    RW_rmdisk       reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    RW_fdisk        reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    RW_mount        reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    RW_mkfs         reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    RW_login        reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    RW_logout       reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    RW_mkgrp        reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    RW_rmgrp        reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    RW_mkusr        reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    RW_rmusr        reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    RW_mkfile       reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    RW_mkdir        reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    RW_rep          reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    commentary      reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
-    $end            reduce using rule 92 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_name         reduce using rule 102 (NAME -> RW_file .)
+    RW_path         reduce using rule 102 (NAME -> RW_file .)
+    RW_id           reduce using rule 102 (NAME -> RW_file .)
+    RW_ruta         reduce using rule 102 (NAME -> RW_file .)
+    RW_mkdisk       reduce using rule 102 (NAME -> RW_file .)
+    RW_rmdisk       reduce using rule 102 (NAME -> RW_file .)
+    RW_fdisk        reduce using rule 102 (NAME -> RW_file .)
+    RW_mount        reduce using rule 102 (NAME -> RW_file .)
+    RW_mkfs         reduce using rule 102 (NAME -> RW_file .)
+    RW_login        reduce using rule 102 (NAME -> RW_file .)
+    RW_logout       reduce using rule 102 (NAME -> RW_file .)
+    RW_mkgrp        reduce using rule 102 (NAME -> RW_file .)
+    RW_rmgrp        reduce using rule 102 (NAME -> RW_file .)
+    RW_mkusr        reduce using rule 102 (NAME -> RW_file .)
+    RW_rmusr        reduce using rule 102 (NAME -> RW_file .)
+    RW_mkfile       reduce using rule 102 (NAME -> RW_file .)
+    RW_mkdir        reduce using rule 102 (NAME -> RW_file .)
+    RW_rep          reduce using rule 102 (NAME -> RW_file .)
+    commentary      reduce using rule 102 (NAME -> RW_file .)
+    $end            reduce using rule 102 (NAME -> RW_file .)
 
 
 state 166
 
-    (93) REPPARAM -> RW_id TK_equ TK_id .
+    (93) REPPARAM -> RW_path TK_equ TK_path .
 
-    RW_name         reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    RW_path         reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    RW_id           reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    RW_ruta         reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    RW_mkdisk       reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    RW_rmdisk       reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    RW_fdisk        reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    RW_mount        reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    RW_mkfs         reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    RW_login        reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    RW_logout       reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    RW_mkgrp        reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    RW_rmgrp        reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    RW_mkusr        reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    RW_rmusr        reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    RW_mkfile       reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    RW_mkdir        reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    RW_rep          reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    commentary      reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
-    $end            reduce using rule 93 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_name         reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_path         reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_id           reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_ruta         reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_mkdisk       reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_rmdisk       reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_fdisk        reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_mount        reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_mkfs         reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_login        reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_logout       reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_mkgrp        reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_rmgrp        reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_mkusr        reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_rmusr        reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_mkfile       reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_mkdir        reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    RW_rep          reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    commentary      reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
+    $end            reduce using rule 93 (REPPARAM -> RW_path TK_equ TK_path .)
 
 
 state 167
 
-    (94) REPPARAM -> RW_ruta TK_equ TK_path .
+    (94) REPPARAM -> RW_id TK_equ TK_id .
 
-    RW_name         reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    RW_path         reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    RW_id           reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    RW_ruta         reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    RW_mkdisk       reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    RW_rmdisk       reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    RW_fdisk        reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    RW_mount        reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    RW_mkfs         reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    RW_login        reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    RW_logout       reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    RW_mkgrp        reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    RW_rmgrp        reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    RW_mkusr        reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    RW_rmusr        reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    RW_mkfile       reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    RW_mkdir        reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    RW_rep          reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    commentary      reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
-    $end            reduce using rule 94 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_name         reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_path         reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_id           reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_ruta         reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_mkdisk       reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_rmdisk       reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_fdisk        reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_mount        reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_mkfs         reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_login        reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_logout       reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_mkgrp        reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_rmgrp        reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_mkusr        reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_rmusr        reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_mkfile       reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_mkdir        reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    RW_rep          reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    commentary      reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+    $end            reduce using rule 94 (REPPARAM -> RW_id TK_equ TK_id .)
+
+
+state 168
+
+    (95) REPPARAM -> RW_ruta TK_equ TK_path .
+
+    RW_name         reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_path         reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_id           reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_ruta         reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_mkdisk       reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_rmdisk       reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_fdisk        reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_mount        reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_mkfs         reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_login        reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_logout       reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_mkgrp        reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_rmgrp        reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_mkusr        reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_rmusr        reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_mkfile       reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_mkdir        reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    RW_rep          reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    commentary      reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
+    $end            reduce using rule 95 (REPPARAM -> RW_ruta TK_equ TK_path .)
 

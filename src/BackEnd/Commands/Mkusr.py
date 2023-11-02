@@ -25,18 +25,16 @@ class Mkusr:
                                             tree: Tree = Tree(superBlock, file)
                                             content, exists = tree.readFile('/users.txt')
                                             if exists:
+                                                print(content)
                                                 users = tree.getUsers(content)
+                                                groups = tree.getGroups(content)
+                                                for u in users:
+                                                    if u.name.strip() == self.params['user']:
+                                                        return self.__getError(f" -> Error mkusr: Ya existe un usuario {self.params['user']}.")
+                                                if not self.__existGrp(groups):
+                                                    return self.__getError(f" -> Error mkusr: No existe un grupo {self.params['grp']}.")
                                                 newUser: str = '{},U,{:<10},{:<10},{:<10}\n'.format(int(users[-1].id) + 1, self.params['grp'], self.params['user'], self.params['pass'])
                                                 tree.writeFile('/users.txt', currentLogged['PathDisk'], mbr.partitions[i].start, newUser)
-                                                if superBlock.filesystem_type == 3:
-                                                    file.seek(mbr.partitions[i].start + SuperBlock.sizeOf())
-                                                    for r in range(superBlock.inodes_count):
-                                                        readed_bytes = file.read(Journal.sizeOf())
-                                                        if readed_bytes == Journal.sizeOf() * b'\x00':
-                                                            with open(currentLogged['PathDisk'], 'r+b') as file:
-                                                                file.seek(mbr.partitions[i].start + SuperBlock.sizeOf() + r * Journal.sizeOf())
-                                                                file.write(Journal('mkusr', '', f'{self.params["user"]},{self.params["pass"]},{self.params["grp"]}', datetime.datetime.now()).encode())
-                                                                break
                                                 return self.__getSuccess(' -> mkusr: Usuario {:<10} creado exitosamente. ({}: {})'.format(self.params['user'], currentLogged['Partition'], os.path.basename(currentLogged['PathDisk']).split('.')[0]))
                                             else:
                                                 return self.__getError(f" -> Error mkusr: No existe el archivo /users.txt.")
@@ -52,6 +50,12 @@ class Mkusr:
                 return self.__getError(f" -> Error mkusr: Solo el usuario 'root' puede crear usuarios.")
         else:
             return self.__getError(f" -> Error mkusr: No hay ningún usuario loggeado actualmente.")
+
+    def __existGrp(self, groups):
+        for g in groups:
+            if g.group.strip() == self.params['grp']:
+                return True
+        return False
 
     def __validateParams(self):
         if 'user' in self.params and 'pass' in self.params and 'grp' in self.params:
