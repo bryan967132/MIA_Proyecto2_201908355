@@ -344,11 +344,11 @@ class Rep:
         os.system(f'aws s3 cp {absolutePathPng} s3://' + f'proyecto2mia/reports/{destdir}/'.replace('//', '/'))
         if len(reports) > 0:
             for report in reports:
-                if not ('https://' + f'proyecto2mia.s3.us-east-2.amazonaws.com/reports/{absolutePathDot}'.replace('//', '/')) in report[1]:
-                    reports.append([absolutePathPng, 'https://' + f'proyecto2mia.s3.us-east-2.amazonaws.com/reports/{absolutePathDot}'.replace('//', '/')])
+                if not ('https://' + f'proyecto2mia.s3.us-east-2.amazonaws.com/reports/{absolutePathPng}'.replace('//', '/')) in report[1]:
+                    reports.append([absolutePathPng, 'https://' + f'proyecto2mia.s3.us-east-2.amazonaws.com/reports/{absolutePathPng}'.replace('//', '/')])
                     break
         else:
-            reports.append([absolutePathPng, 'https://' + f'proyecto2mia.s3.us-east-2.amazonaws.com/reports/{absolutePathDot}'.replace('//', '/')])
+            reports.append([absolutePathPng, 'https://' + f'proyecto2mia.s3.us-east-2.amazonaws.com/reports/{absolutePathPng}'.replace('//', '/')])
         return self.__getSuccess(self.params['name'].lower(), diskname)
 
     def __percentage(self, start, firstEmptyByte, size) -> int or float:
