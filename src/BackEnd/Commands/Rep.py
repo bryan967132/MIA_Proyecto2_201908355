@@ -180,16 +180,20 @@ class Rep:
                             superBlock = SuperBlock.decode(file.read(SuperBlock.sizeOf()))
                             file.seek(superBlock.bm_inode_start)
                             bm_inodes = file.read(superBlock.inodes_count).decode('utf-8')
-                            matriz: str = ''
                             i: int = 0
+                            matriz = '\n\t\t<tr><td>'
                             while i < len(bm_inodes):
-                                matriz += bm_inodes[i] + '  '
+                                matriz += bm_inodes[i] + '</td><td>'
                                 if (i + 1) % 20 == 0:
-                                    matriz += '\n'
+                                    matriz += '</tr>\n\t\t<tr><td>'
                                 i += 1
-                            with open(os.path.abspath(self.params['path']), 'w') as file:
-                                file.write(matriz)
-                            return self.__getSuccess(self.params['name'].lower(), f'({namePartition}: {match.group(2)})')
+                            matriz += '</tr>'
+                            dot = 'digraph bmInode {'
+                            dot += '\tstruct1 [label=<<TABLE>'
+                            dot += matriz
+                            dot += '\t</TABLE>>];'
+                            dot += '}'
+                            return self.__generateFile(dot, f'({match.group(2)})')
             else:
                 return self.__getError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
         else:
@@ -210,16 +214,20 @@ class Rep:
                             superBlock = SuperBlock.decode(file.read(SuperBlock.sizeOf()))
                             file.seek(superBlock.bm_block_start)
                             bm_blocks = file.read(superBlock.blocks_count).decode('utf-8')
-                            matriz: str = ''
                             i: int = 0
+                            matriz = '\n\t\t<tr><td>'
                             while i < len(bm_blocks):
-                                matriz += bm_blocks[i] + '  '
+                                matriz += bm_blocks[i] + '</td><td>'
                                 if (i + 1) % 20 == 0:
-                                    matriz += '\n'
+                                    matriz += '</tr>\n\t\t<tr><td>'
                                 i += 1
-                            with open(os.path.abspath(self.params['path']), 'w') as file:
-                                file.write(matriz)
-                            return self.__getSuccess(self.params['name'].lower(), f'({namePartition}: {match.group(2)})')
+                            matriz += '</tr>'
+                            dot = 'digraph bmBlock {'
+                            dot += '\tstruct1 [label=<<TABLE>'
+                            dot += matriz
+                            dot += '\t</TABLE>>];'
+                            dot += '}'
+                            return self.__generateFile(dot, f'({match.group(2)})')
             else:
                 return self.__getError(f' -> Error rep: No existe el código de partición {self.params["id"]} para reportar el disco {match.group(2)}.')
         else:

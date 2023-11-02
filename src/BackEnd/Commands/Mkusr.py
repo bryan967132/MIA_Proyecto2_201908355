@@ -25,7 +25,6 @@ class Mkusr:
                                             tree: Tree = Tree(superBlock, file)
                                             content, exists = tree.readFile('/users.txt')
                                             if exists:
-                                                print(content)
                                                 users = tree.getUsers(content)
                                                 groups = tree.getGroups(content)
                                                 for u in users:
