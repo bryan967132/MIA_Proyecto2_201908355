@@ -181,13 +181,26 @@ class Rep:
                             file.seek(superBlock.bm_inode_start)
                             bm_inodes = file.read(superBlock.inodes_count).decode('utf-8')
                             i: int = 0
-                            matriz = '\n\t\t<tr><td>'
+                            matriz = ''
+                            c: int = 0
+                            row: int = 0
+                            col: int = 0
                             while i < len(bm_inodes):
-                                matriz += bm_inodes[i] + '</td><td>'
-                                if (i + 1) % 20 == 0:
-                                    matriz += '</tr>\n\t\t<tr><td>'
+                                if c == 500:
+                                    break
+                                if col == 0:
+                                    matriz += '<tr><td>' + bm_inodes[i] + '</td>'
+                                elif col == 19:
+                                    matriz += '<td>' + bm_inodes[i] + '</td></tr>'
+                                else:
+                                    matriz += '<td>' + bm_inodes[i] + '</td>'
+
                                 i += 1
-                            matriz += '</tr>'
+                                c += 1
+                                col = (col + 1) % 20
+                                if col == 0 and c != 0:
+                                    row += 1
+
                             dot = 'digraph bmInode {'
                             dot += '\nnode [shape=plaintext];'
                             dot += '\tstruct1 [label=<<TABLE>'
@@ -216,13 +229,25 @@ class Rep:
                             file.seek(superBlock.bm_block_start)
                             bm_blocks = file.read(superBlock.blocks_count).decode('utf-8')
                             i: int = 0
-                            matriz = '\n\t\t<tr><td>'
+                            matriz = ''
+                            c: int = 0
+                            row: int = 0
+                            col: int = 0
                             while i < len(bm_blocks):
-                                matriz += bm_blocks[i] + '</td><td>'
-                                if (i + 1) % 20 == 0:
-                                    matriz += '</tr>\n\t\t<tr><td>'
+                                if c == 500:
+                                    break
+                                if col == 0:
+                                    matriz += '<tr><td>' + bm_blocks[i] + '</td>'
+                                elif col == 19:
+                                    matriz += '<td>' + bm_blocks[i] + '</td></tr>'
+                                else:
+                                    matriz += '<td>' + bm_blocks[i] + '</td>'
+
                                 i += 1
-                            matriz += '</tr>'
+                                c += 1
+                                col = (col + 1) % 20
+                                if col == 0 and c != 0:
+                                    row += 1
                             dot = 'digraph bmBlock {'
                             dot += '\nnode [shape=plaintext];'
                             dot += '\tstruct1 [label=<<TABLE>'
@@ -350,7 +375,7 @@ class Rep:
         with open(absolutePathDot, 'w') as file:
             file.write(dot)
         os.system(f'dot -Tpng "{absolutePathDot}" -o "{absolutePathPng}"')
-        os.remove(absolutePathDot)
+        # os.remove(absolutePathDot)
         os.system(f'aws s3 cp {absolutePathPng} s3://' + f'proyecto2mia/reports/{destdir}/'.replace('//', '/'))
         if len(reports) > 0:
             for report in reports:
