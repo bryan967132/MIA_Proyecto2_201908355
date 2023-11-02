@@ -189,6 +189,7 @@ class Rep:
                                 i += 1
                             matriz += '</tr>'
                             dot = 'digraph bmInode {'
+                            dot += '\nnode [shape=plaintext];'
                             dot += '\tstruct1 [label=<<TABLE>'
                             dot += matriz
                             dot += '\t</TABLE>>];'
@@ -223,6 +224,7 @@ class Rep:
                                 i += 1
                             matriz += '</tr>'
                             dot = 'digraph bmBlock {'
+                            dot += '\nnode [shape=plaintext];'
                             dot += '\tstruct1 [label=<<TABLE>'
                             dot += matriz
                             dot += '\t</TABLE>>];'
